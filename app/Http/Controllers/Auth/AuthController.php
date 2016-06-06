@@ -7,6 +7,10 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Ldap;
+use Hash;
 
 class AuthController extends Controller
 {
@@ -23,12 +27,14 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    /**
-     * Where to redirect users after login / registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
+    // Override use of email
+    protected $username = 'username';
+
+    protected $loginPath = '/login';
+
+    protected $redirectPath = '/';
+
+    protected $ldap;
 
     /**
      * Create a new authentication controller instance.
@@ -37,7 +43,100 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware('guest', ['except' => 'getLogout']);
+        $this->ldap = new Ldap;
+    }
+
+    public function getLogin(Request $request) {
+
+      if (view()->exists('auth.authenticate')) {
+          return view('auth.authenticate');
+      }
+
+      return view('auth.login');
+
+    }
+
+    // Customer postLogin logic
+    public function login(Request $request) {
+
+      $this->validate($request, [
+          $this->loginUsername() => 'required', 'password' => 'required',
+      ]);
+
+      $credentials = $request->only('username', 'password');
+
+      if (!Auth::attempt($credentials)) {
+
+        $attempt = $this->ldap->attempt($credentials);
+
+        if ($attempt) {
+
+          // User comes back as an array of information
+          // grab the info you need and save
+          $user = $this->__userFormat($attempt, $credentials);
+
+          $exists = User::where('username', $user['username'])->first();
+          //exit(dd($exists));
+          // Check if user exists. If true update else create
+          if (!is_null($exists) && $exists->exists()) {
+
+            // Set new password and save user
+            $exists->password = $user['password'];
+
+            $exists->save();
+
+            Auth::login($exists);
+
+          } else {
+
+            // Create and login new user
+            Auth::login($user = User::create($user));
+
+          }
+
+          if (Auth::user()) {
+
+            return redirect()->intended($this->redirectPath());
+
+          }
+
+        } else {
+
+          // Redirect if user fails LDAP auth
+          return redirect($this->loginPath)
+            ->withInput($request->only($this->loginUsername(), 'remember'))
+            ->withErrors([
+                $this->loginUsername() => $this->getFailedLoginMessage(),
+          ]);
+
+        }
+
+      } else {
+
+        return redirect()->intended($this->redirectPath())->with('success', 'Successfully logged in');
+
+      }
+
+    }
+
+    private function __userFormat($userInfo, $creds, $user = []) {
+
+      if (isset($userInfo['givenname'])){
+          $name = $userInfo['givenname'][0].' '.$userInfo['sn'][0];
+      } else {
+          $name = $userInfo['cn'][0];
+      }
+
+      $user = [
+        'name' => $name,
+        'username' => $creds['username'],
+        'email' => $userInfo['userprincipalname'][0],
+        'password' => Hash::make($creds['password']),
+      ];
+
+      return $user;
+
     }
 
     /**
@@ -51,7 +150,7 @@ class AuthController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|confirmed|min:6',
         ]);
     }
 
@@ -69,4 +168,15 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function getLogout(Request $request) {
+
+      Auth::logout();
+
+      $request->session()->flash('success', 'You have been logged out');
+
+      return redirect('login');
+
+    }
+
 }
