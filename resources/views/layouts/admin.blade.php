@@ -15,7 +15,16 @@
         @if (Auth::check())
             <header>
                 <nav>
-                    
+                    <div class="ui menu inverted">
+                        <a class="header item">CMS</a>
+                        <div class="ui dropdown item">
+                            Content
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                              <a class="item"><i class="add icon"></i> Add Content</a>
+                            </div>
+                        </div>
+                    </div>
                 </nav>
             </header>
         @endif
@@ -25,6 +34,10 @@
         @endif
 
         @include('shared._errors')
+
+        <h1 class="ui dividing header">
+            @yield('header')
+        </h1>
 
         @yield('content')
 
