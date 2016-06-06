@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Place all routes needing AUTH in closure below
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', 'ContentController@index');
 });
+
+// Authentication routes...
+Route::get('/login', 'Auth\AuthController@getLogin');
+Route::post('/login', 'Auth\AuthController@login');
+Route::get('/logout', 'Auth\AuthController@getLogout');
