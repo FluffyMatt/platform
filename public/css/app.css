@@ -1,20 +1,12 @@
-body > .container {
-  margin-top: 50px;
-  padding-bottom: 100px; }
-
 body > .grid {
   height: 100%; }
 
-.form-body {
-  margin-top: 30px; }
+body > .container {
+  margin-left: 150px;
+  margin-top: 50px;
+  padding-bottom: 100px; }
 
-.form-body .field {
-  padding-bottom: 20px; }
-
-.form-footer {
-  margin-top: 20px; }
-
-.confirm-delete.ui.basic.red.button {
-  box-shadow: none !important; }
+.ui.menu {
+  border-radius: 0; }
 
 /*# sourceMappingURL=app.css.map */
