@@ -14,6 +14,7 @@
 // Place all routes needing AUTH in closure below
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'ContentController@index');
+    Route::resource('content', 'ContentController');
 });
 
 // Authentication routes...
