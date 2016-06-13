@@ -21,8 +21,20 @@
                             Content
                             <i class="dropdown icon"></i>
                             <div class="menu">
-                              <a class="item"><i class="add icon"></i> Add Content</a>
+                              <a class="item" href="/content/create"><i class="add icon"></i> Add Content</a>
                             </div>
+                        </div>
+                        <div class="ui dropdown item right">
+                            @if (Auth::check())
+                                <i class="user icon"></i>
+                                {{Auth::user()->name}}
+                                <div class="menu">
+                                  <a class="item" href="/users/{{Auth::user()->id}}/edit"><i class="settings icon"></i> User profile</a>
+                                  <a class="item" href="/logout"><i class="sign out icon"></i> Logout</a>
+                                </div>
+                            @else
+
+                            @endif
                         </div>
                     </div>
                 </nav>
@@ -35,10 +47,12 @@
 
         @include('shared._errors')
 
+        @if (Auth::check())
         <h1 class="ui dividing header">
             @yield('header')
         </h1>
-
+        @endif
+        
         @yield('content')
 
         @if (Auth::check())
@@ -57,6 +71,7 @@
             <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>-->
             <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
         @endif
+        <script src="//cdn.ckeditor.com/4.5.9/full/ckeditor.js"></script>
         <script src="/js/app.js"></script>
 
     </body>
