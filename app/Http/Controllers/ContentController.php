@@ -14,4 +14,8 @@ class ContentController extends Controller
         return view('content.index');
     }
 
+    public function create() {
+        return view('content.add');
+    }
+
 }
