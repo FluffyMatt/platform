@@ -18,7 +18,7 @@ class Content extends Model
         'slug'
     ]
 
-    publinc function users() {
+    public function users() {
         return $this->belongsToMany('App\User', 'content_users', 'user_id', 'content_id')
     }
 
