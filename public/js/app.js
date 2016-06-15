@@ -1,5 +1,10 @@
 $(function() {
 
+	// API Endpoints
+	$.fn.api.settings.api = {
+		'search user'        : '/api/v1/users/search?query={/value}'
+	};
+
 	// CKEDITOR
 	if ($('[name="body"]').length > 0) {
 		CKEDITOR.replace('body', {
@@ -23,5 +28,31 @@ $(function() {
 		type: 'datetime'
 	});
 	$('.ui.dropdown').dropdown({on: 'focus'})
+
+	$('.authors').dropdown({
+		apiSettings: {
+			action: 'search user',
+			on: 'now',
+			onResponse : function(data) {
+
+				var response = {
+					results : {}
+				};
+
+				$.each(data.users, function(index, item) {
+
+					var result = {
+						name : item.name,
+						value : item.id
+					};
+
+					response.results[index] = result;
+
+				});
+				console.log(response);
+				return response;
+			}
+		}
+	});
 
 });
