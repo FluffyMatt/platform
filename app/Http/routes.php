@@ -15,6 +15,11 @@
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'ContentController@index');
     Route::resource('content', 'ContentController');
+
+    Route::group(['prefix' => 'api/v1'], function() {
+        Route::get('users/search', 'UserController@search');
+    });
+
 });
 
 // Authentication routes...
