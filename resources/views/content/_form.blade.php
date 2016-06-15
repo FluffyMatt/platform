@@ -50,6 +50,11 @@
 			<select class="ui fluid search dropdown authors" multiple="" name="authors"></select>
 		</div>
 
+		<div class="field">
+			<label for="categories">Categories</label>
+			<select class="ui fluid search dropdown categories" multiple="" name="categories"></select>
+		</div>
+
 	</div>
 
 </div>
