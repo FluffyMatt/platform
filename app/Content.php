@@ -19,7 +19,7 @@ class Content extends Model
     ]
 
     public function users() {
-        return $this->belongsToMany('App\User', 'content_users', 'user_id', 'content_id')
+        return $this->belongsToMany('App\User', 'content_users', 'user_id', 'content_id');
     }
 
 }

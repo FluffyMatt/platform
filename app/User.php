@@ -25,7 +25,7 @@ class User extends Authenticatable
     ];
 
     public function content() {
-        return $this->belongsToMany('App\Content')
+        return $this->belongsToMany('App\Content');
     }
 
 }
