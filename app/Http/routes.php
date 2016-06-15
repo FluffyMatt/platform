@@ -16,6 +16,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'ContentController@index');
     Route::resource('content', 'ContentController');
 
+    // Routes for Admin/Editor only
+    Route::group(['middleware' => 'adminOrAuthor'], function() {
+
+    });
+
     Route::group(['prefix' => 'api/v1'], function() {
         Route::get('users/search', 'UserController@search');
     });
