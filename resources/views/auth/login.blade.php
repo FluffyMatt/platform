@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.cms')
 
 @section('title', 'Login')
 
@@ -12,7 +12,7 @@
 
         <form class="ui large form" id="login" method="post" action="/login">
 
-            <div class="ui stacked segment">
+            <div class="ui segment">
 
             {{ csrf_field() }}
 
