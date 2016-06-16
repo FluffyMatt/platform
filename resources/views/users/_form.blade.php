@@ -46,5 +46,3 @@
 		  	</div>
 		</div>
 	</div>
-
-	@include('shared._buttons')

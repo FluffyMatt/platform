@@ -2,11 +2,13 @@
 
 @section('title', 'Adding new category')
 
-@section('header', 'Add new category')
+@section('header', 'Add category')
+
+@section('buttons')
+	@include('shared._buttons')
+@endsection
 
 @section('content')
-
-<h1 class="ui dividing header">Add category</h1>
 
 <form class="ui form" action="/categories" method="post">
 

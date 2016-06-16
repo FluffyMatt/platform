@@ -4,6 +4,10 @@
 
 @section('header', 'Edit User')
 
+@section('buttons')
+	@include('shared._buttons')
+@endsection
+
 @section('content')
 
     <form class="ui form" action="/users/{{ $user->id }}" method="POST">

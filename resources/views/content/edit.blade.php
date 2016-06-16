@@ -2,9 +2,13 @@
 
 @section('title', 'Editing content')
 
-@section('content')
+@section('header', 'Edit content')
 
-<h1 class="ui dividing header">Edit content</h1>
+@section('buttons')
+	@include('shared._buttons')
+@endsection
+
+@section('content')
 
 <form class="ui form" action="/content" method="post">
 
