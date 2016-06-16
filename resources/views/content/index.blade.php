@@ -2,13 +2,13 @@
 
 @section('title', 'Content index')
 
-@section('header', 'Content index')
+@section('header', 'Content')
+
+@section('buttons')
+	<a class="ui primary right floated button" href="/content/create">Add New</a>
+@endsection
 
 @section('content')
-
-	<div class="buttons">
-		<a class="ui primary right floated button" href="/content/create">Add New</a>
-	</div>
 
 	<table class="ui celled table">
 		<thead>

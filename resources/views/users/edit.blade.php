@@ -2,9 +2,9 @@
 
 @section('title', 'Edit User')
 
-@section('content')
+@section('header', 'Edit User')
 
-    <h1 class="ui dividing header">Edit User</h1>
+@section('content')
 
     <form class="ui form" action="/users/{{ $user->id }}" method="POST">
 

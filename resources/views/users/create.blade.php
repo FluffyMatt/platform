@@ -2,9 +2,9 @@
 
 @section('title', 'Create User')
 
-@section('content')
+@section('header', 'Create User')
 
-    <h1 class="ui dividing header">Create user</h1>
+@section('content')
 
     <form class="ui form" action="/users" method="POST">
 
