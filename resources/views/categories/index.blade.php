@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
-@section('title', 'Content index')
+@section('title', 'Category index')
 
-@section('header', 'Content index')
+@section('header', 'Category index')
 
 @section('content')
 
 	<div class="top buttons">
-		<a class="ui primary right floated button" href="/content/create">Add New</a>
+		<a class="ui primary right floated button" href="/categories/create">Add New</a>
 	</div>
 
 	<table class="ui celled table">
@@ -21,28 +21,28 @@
 			</tr>
 		</thead>
 		<tbody>
-			@forelse ($allContent as $content)
+			@forelse ($categories as $category)
 				<tr>
 					<td>
-						{{ $content->id }}
+						{{ $category->id }}
 					</td>
 					<td>
-						{{ $content->status }}
+						{{ $category->status }}
 					</td>
 					<td>
-						{{ $content->created_at }}
+						{{ $category->created_at }}
 					</td>
 					<td>
-						{{ $content->published_at }}
+						{{ $category->published_at }}
 					</td>
 					<td>
 						<div class="ui teal buttons">
-							<a class="ui button" href="/content/{{ $content->id }}/edit">Edit</a>
+							<a class="ui button" href="/categories/{{ $category->id }}/edit">Edit</a>
 							<div class="ui floating dropdown icon small button">
 								<i class="dropdown icon"></i>
 								<div class="menu">
 									<div class="item">
-										<form action="/content/{{ $content->id }}" method="POST">
+										<form action="/categories/{{ $category->id }}" method="POST">
 											{{ csrf_field() }}
 											{{ method_field('DELETE') }}
 											<div class="item">

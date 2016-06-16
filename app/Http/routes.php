@@ -15,6 +15,7 @@
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'ContentController@index');
     Route::resource('content', 'ContentController');
+    Route::resource('categories', 'CategoryController');
 
     // Routes for Admin/Editor only
     Route::group(['middleware' => 'adminOrAuthor'], function() {

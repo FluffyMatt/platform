@@ -10,4 +10,8 @@ body > .container { margin-left: 150px; margin-top: 50px; padding-bottom: 100px;
 .ui.menu { @include border-radius(0); }
 
 // Layout
-.buttons { margin-bottom: 15px; float: right; }
+.buttons {
+	float: right;
+	&.bottom { margin: 15px 0; }
+	&.top { margin-bottom: 15px; }
+}
