@@ -64,6 +64,18 @@
 
         @include('shared._errors')
 
+        @if (Auth::check())
+
+        <div class="buttons">
+            @yield('buttons')
+    	</div>
+
+        <h1 class="ui header">
+            @yield('header')
+        </h1>
+
+        @endif
+
         @yield('content')
 
         @if (Auth::check())

@@ -1,3 +1,3 @@
-<div class="bottom buttons">
-	<button class="ui right floated primary button">Save</button>
+<div class="ui secondary clearing padded segment">
+	<button class="ui primary right floated large button">Save</button>
 </div>

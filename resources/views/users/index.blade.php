@@ -2,11 +2,13 @@
 
 @section('title', 'Users')
 
+@section('header', 'Users')
+
+@section('buttons')
+	<a class="ui primary right floated button" href="/users/create">Add New</a>
+@endsection
+
 @section('content')
-
-	<p><a class="ui primary right floated button" href="/users/create">Add New</a></p>
-
-	<h1 class="ui header">Users</h1>
 
 	<table class="ui celled table">
 		<thead>

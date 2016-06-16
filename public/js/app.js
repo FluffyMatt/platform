@@ -27,7 +27,10 @@ $(function() {
 		},
 		type: 'datetime'
 	});
+
 	$('.ui.dropdown').dropdown({on: 'focus'})
+
+	$('.ui.checkbox').checkbox();
 
 	$('.authors').dropdown({
 		apiSettings: {
