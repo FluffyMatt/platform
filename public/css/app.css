@@ -9,4 +9,7 @@ body > .container {
 .ui.menu {
   border-radius: 0; }
 
+h1.ui.header {
+  padding-top: 10px; }
+
 /*# sourceMappingURL=app.css.map */
