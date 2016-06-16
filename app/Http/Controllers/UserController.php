@@ -5,10 +5,63 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\User;
 use DB;
 
 class UserController extends Controller
 {
+
+    public function index()
+    {
+        $users = User::all();
+
+        return view('users.index', compact('users'));
+    }
+
+    public function create()
+    {
+        return view('users.create');
+    }
+
+    public function store(UserRequest $request)
+    {
+
+        $user = User::create($request->all());
+
+        return redirect('users');
+    }
+
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+
+        return view('users.show', compact('user'));
+    }
+
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+
+        return view('users.edit', compact('user'));
+    }
+
+    public function update(UserRequest $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->update($request->all());
+
+        return redirect('users');
+    }
+
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return redirect('users');
+    }
 
     public function search(Request $request) {
 
@@ -26,13 +79,10 @@ class UserController extends Controller
             }
         }
 
-
         $users = $query->get();
 
         if ($users) {
-
             return response()->json(['success' => true, 'users' => $users], 200);
-
         }
 
         return response()->json(['success' => false], 404);

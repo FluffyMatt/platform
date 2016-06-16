@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>@yield('title', 'Page Title') | Geek Squad Complaints</title>
+        <title>@yield('title', 'Page Title') | CMS</title>
         @if (App::environment('local'))
             <link rel="stylesheet" href="/css/semantic.min.css">
         @else
@@ -31,6 +31,14 @@
                             <div class="menu">
                                 <a class="item" href="/categories"><i class="list icon"></i> All Categories</a>
                                 <a class="item" href="/categories/create"><i class="add icon"></i> Add Categories</a>
+                            </div>
+                        </div>
+                        <div class="ui dropdown item">
+                            Users
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a class="item" href="/users"><i class="list icon"></i> All users</a>
+                                <a class="item" href="/users/create"><i class="add icon"></i> Add User</a>
                             </div>
                         </div>
                         <div class="ui dropdown item right">

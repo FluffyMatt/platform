@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.cms')
 
 @section('title', 'Adding new category')
 
@@ -9,7 +9,7 @@
 <form class="ui form" action="/categories" method="post">
 
 	@include('categories._form')
-	
+
 </form>
 
 @endsection
