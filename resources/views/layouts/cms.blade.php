@@ -26,6 +26,14 @@
                             </div>
                         </div>
                         <div class="ui dropdown item">
+                            Categories
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a class="item" href="/categories"><i class="list icon"></i> All Categories</a>
+                                <a class="item" href="/categories/create"><i class="add icon"></i> Add Categories</a>
+                            </div>
+                        </div>
+                        <div class="ui dropdown item">
                             Users
                             <i class="dropdown icon"></i>
                             <div class="menu">

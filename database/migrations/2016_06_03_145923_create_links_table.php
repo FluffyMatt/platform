@@ -19,7 +19,7 @@ class CreateLinksTable extends Migration
             $table->integer('menu_id');
             $table->integer('content_id');
             $table->string('url');
-            $table->index('menu_id');
+            $table->index('menu_id', 'content_id');
         });
     }
 
