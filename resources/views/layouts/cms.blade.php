@@ -64,12 +64,6 @@
 
         @include('shared._errors')
 
-        @if (Auth::check())
-        <h1 class="ui dividing header">
-            @yield('header')
-        </h1>
-        @endif
-
         @yield('content')
 
         @if (Auth::check())

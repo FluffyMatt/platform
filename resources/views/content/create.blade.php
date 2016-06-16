@@ -2,9 +2,9 @@
 
 @section('title', 'Adding new content')
 
-@section('header', 'Add new content')
-
 @section('content')
+
+<h1 class="ui dividing header">Add content</h1>
 
 <form class="ui form" action="/content" method="post">
 

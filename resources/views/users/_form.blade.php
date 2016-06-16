@@ -47,6 +47,6 @@
 
 	</div>
 
-	<div class="form-footer">
-		<button class="ui primary button">Submit</button>
+	<div class="bottom buttons">
+		@include('shared._buttons')
 	</div>

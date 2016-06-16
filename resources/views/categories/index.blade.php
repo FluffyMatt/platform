@@ -1,14 +1,14 @@
-@extends('layouts.admin')
+@extends('layouts.cms')
 
 @section('title', 'Category index')
-
-@section('header', 'Category index')
 
 @section('content')
 
 	<div class="top buttons">
 		<a class="ui primary right floated button" href="/categories/create">Add New</a>
 	</div>
+
+	<h1 class="ui header">Categories</h1>
 
 	<table class="ui celled table">
 		<thead>

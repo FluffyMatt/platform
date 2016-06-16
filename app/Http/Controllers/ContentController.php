@@ -17,7 +17,7 @@ class ContentController extends Controller
     }
 
     public function create() {
-        return view('content.add');
+        return view('content.create');
     }
 
     public function store(Request $request) {
