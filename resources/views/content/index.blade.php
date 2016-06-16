@@ -16,6 +16,7 @@
 				<th>Title</th>
 				<th>Status</th>
 				<th>Created</th>
+				<th>Published</th>
 				<th>Action</th>
 			</tr>
 		</thead>
@@ -30,6 +31,9 @@
 					</td>
 					<td>
 						{{ $content->created_at }}
+					</td>
+					<td>
+						{{ $content->published_at }}
 					</td>
 					<td>
 						<div class="ui teal buttons">
