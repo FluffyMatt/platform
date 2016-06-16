@@ -21,7 +21,8 @@
                             Content
                             <i class="dropdown icon"></i>
                             <div class="menu">
-                              <a class="item" href="/content/create"><i class="add icon"></i> Add Content</a>
+                                <a class="item" href="/content"><i class="list icon"></i> All Content</a>
+                                <a class="item" href="/content/create"><i class="add icon"></i> Add Content</a>
                             </div>
                         </div>
                         <div class="ui dropdown item right">
@@ -52,7 +53,7 @@
             @yield('header')
         </h1>
         @endif
-        
+
         @yield('content')
 
         @if (Auth::check())
