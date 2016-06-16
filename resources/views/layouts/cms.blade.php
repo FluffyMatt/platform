@@ -66,11 +66,13 @@
 
         @if (Auth::check())
 
-        @yield('buttons')
+            @yield('buttons')
 
-        <h1 class="ui header">
-            @yield('header')
-        </h1>
+            <h1 class="ui header">
+                @yield('header')
+            </h1>
+
+            <div class="ui hidden clearing fitted divider"></div>
 
         @endif
 
