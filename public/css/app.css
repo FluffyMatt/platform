@@ -9,4 +9,8 @@ body > .container {
 .ui.menu {
   border-radius: 0; }
 
+.buttons {
+  margin-bottom: 15px;
+  float: right; }
+
 /*# sourceMappingURL=app.css.map */
