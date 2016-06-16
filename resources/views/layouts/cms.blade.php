@@ -66,9 +66,7 @@
 
         @if (Auth::check())
 
-        <div class="buttons">
-            @yield('buttons')
-    	</div>
+        @yield('buttons')
 
         <h1 class="ui header">
             @yield('header')
