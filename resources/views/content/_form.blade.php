@@ -4,31 +4,33 @@
 
 	<div class="eleven wide column">
 
-	<div class="ui segments">
-		<div class="ui padded segment">
+		<div class="ui segments">
 
-		<div class="field">
-			<label for="title">Title</label>
-			<input type="text" name="title" value="{{ old('title', @$content->title) }}">
-		</div>
+			<div class="ui padded segment">
 
-		<div class="field">
-			<label for="description">Description</label>
-			<textarea name="description" rows="2">{{ old('description', @$content->description) }}</textarea>
-		</div>
+				<div class="field">
+					<label for="title">Title</label>
+					<input type="text" name="title" value="{{ old('title', @$content->title) }}">
+				</div>
 
-		<div class="field">
-			<label for="slug">URL</label>
-			<input type="text" name="slug" value="{{ old('slug', @$content->slug) }}">
-		</div>
+				<div class="field">
+					<label for="description">Description</label>
+					<textarea name="description" rows="2">{{ old('description', @$content->description) }}</textarea>
+				</div>
 
-		<div class="field">
-			<label for="body">Body</label>
-			<textarea type="textarea" name="body" >{{ old('body', @$content->body) }}</textarea>
-		</div>
+				<div class="field">
+					<label for="slug">URL</label>
+					<input type="text" name="slug" value="{{ old('slug', @$content->slug) }}">
+				</div>
+
+				<div class="field">
+					<label for="body">Body</label>
+					<textarea type="textarea" name="body" >{{ old('body', @$content->body) }}</textarea>
+				</div>
+
+			</div>
 
 		</div>
-	</div>
 
 		@include('.shared._seo')
 
@@ -37,6 +39,7 @@
 	<div class="five wide column">
 
 		<div class="ui segments">
+
 			<div class="ui padded segment">
 
 			<div class="field">
@@ -65,6 +68,7 @@
 			</div>
 
 			</div>
+			
 		</div>
 
 	</div>
