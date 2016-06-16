@@ -10,5 +10,5 @@ SEO
 
 <div class="field">
 	<label for="seo_description">Description</label>
-	<textarea name="seo_description" value="{{ old('seo_description', @$content->seo_description) }}" rows="2"></textarea>
+	<textarea name="seo_description" rows="2">{{ old('seo_description', @$content->seo_description) }}</textarea>
 </div>

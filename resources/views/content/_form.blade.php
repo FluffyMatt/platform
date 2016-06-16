@@ -11,7 +11,7 @@
 
 		<div class="field">
 			<label for="description">Description</label>
-			<textarea name="description" value="{{ old('description', @$content->description) }}" rows="2"></textarea>
+			<textarea name="description" rows="2">{{ old('description', @$content->description) }}</textarea>
 		</div>
 
 		<div class="field">
@@ -21,7 +21,7 @@
 
 		<div class="field">
 			<label for="body">Body</label>
-			<input type="textarea" name="body" value="{{ old('body', @$content->body) }}">
+			<textarea type="textarea" name="body" >{{ old('body', @$content->body) }}</textarea>
 		</div>
 
 		@include('.shared._seo')
@@ -33,8 +33,8 @@
 		<div class="field">
 			<label for="status">Status</label>
 			<select class="ui fluid dropdown" name="status" id="status">
-				<option value="draft" selected>Draft</option>
-				<option value="published">Published</option>
+				<option value="draft" @if(old('status', @$content->status) == 'draft') selected @endif >Draft</option>
+				<option value="published" @if(old('status', @$content->status) == 'published') selected @endif >Published</option>
 			</select>
 		</div>
 
@@ -46,13 +46,13 @@
 		</div>
 
 		<div class="field">
-			<label for="authors">Authors</label>
-			<select class="ui fluid search dropdown authors" multiple="" name="authors"></select>
+			<label for="users">Authors</label>
+			<select class="ui fluid search dropdown authors" multiple="" name="users[]"></select>
 		</div>
 
 		<div class="field">
 			<label for="categories">Categories</label>
-			<select class="ui fluid search dropdown categories" multiple="" name="categories"></select>
+			<select class="ui fluid search dropdown categories" multiple="" name="categories[]"></select>
 		</div>
 
 	</div>

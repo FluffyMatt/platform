@@ -1,1 +1,1 @@
-<div class="ui right floated primary button">Save</div>
+<button class="ui right floated primary button">Save</button>
