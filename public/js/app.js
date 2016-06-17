@@ -17,9 +17,14 @@ $(function() {
 		$('.ui.form').submit();
 	});
 
+	$('.item.delete-confirm').click(function() {
+		$(this).children('form').submit();
+	})
+
 	// Semantic
    $('.ui.calendar').calendar({
 		on: 'focus',
+		ampm: false,
 		formatter: {
 			date: function (date, settings) {
 				if (!date) return '';
@@ -31,6 +36,10 @@ $(function() {
 		},
 		type: 'datetime'
 	});
+
+	$('.message .close').on('click', function() {
+	    $(this).closest('.message').transition('fade');
+	  });
 
 	$('.ui.dropdown').dropdown({on: 'hover'})
 	$('form .ui.dropdown').dropdown({on: 'focus'})
