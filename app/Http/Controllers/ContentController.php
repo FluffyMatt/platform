@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Content;
 use App\Http\Requests;
+use App\Http\Requests\FilterRequest;
 
 class ContentController extends Controller
 {
 
-    public function index()
+    public function index(FilterRequest $request)
     {
+        $titles = Content::distinct('title')->pluck('title', 'title');
+
+        $filters = ['title' => $titles];
+
         $allContent = Content::orderBy('created_at', 'desc')->paginate(15);
 
-        return view('content.index', ['allContent' => $allContent]);
+        return view('content.index', ['allContent' => $allContent, 'filters' => $filters]);
     }
 
     public function create() {

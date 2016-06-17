@@ -123,10 +123,12 @@ class AuthController extends Controller
     private function __userFormat($userInfo, $creds, $user = []) {
 
       if (isset($userInfo['givenname'])){
+          $fullName = $userInfo['givenname'][0].' '.$userInfo['sn'][0];
           $firstName = $userInfo['givenname'][0];
           $lastName = $userInfo['sn'][0];
       } else {
-          $name = explode(' ', $userInfo['cn'][0]);
+          $fullName = $userInfo['cn'][0];
+          $name = explode(' ', $fullname);
           $firstName = $name[0];
           $lastName = $name[1];
       }
@@ -134,6 +136,7 @@ class AuthController extends Controller
       $user = [
         'first_name' => $lastName,
         'last_name' => $firstName,
+        'full_name' => $fullName,
         'username' => $creds['username'],
         'email' => $userInfo['userprincipalname'][0],
         'password' => Hash::make($creds['password']),

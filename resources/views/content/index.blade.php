@@ -10,6 +10,8 @@
 
 @section('content')
 
+	@include('shared._filter', [$filters])
+
 	<table class="ui celled table">
 		<thead>
 			<tr>
