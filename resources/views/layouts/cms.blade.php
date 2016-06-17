@@ -17,36 +17,36 @@
                 <nav>
                     <div class="ui menu inverted">
                         <a class="header item">CMS</a>
-                        <div class="ui dropdown item">
+                        <div class="ui dropdown item {{ AppHelper::is_active_parent('content') }}">
                             Content
                             <i class="dropdown icon"></i>
                             <div class="menu">
-                                <a class="item" href="/content"><i class="list icon"></i> All Content</a>
-                                <a class="item" href="/content/create"><i class="add icon"></i> Add Content</a>
+                                <a class="item {{ AppHelper::is_active('content') }}" href="/content"><i class="list icon"></i> All Content</a>
+                                <a class="item {{ AppHelper::is_active('content/create') }}" href="/content/create"><i class="add icon"></i> Add Content</a>
                             </div>
                         </div>
-                        <div class="ui dropdown item">
+                        <div class="ui dropdown item {{ AppHelper::is_active_parent('categories') }}">
                             Categories
                             <i class="dropdown icon"></i>
                             <div class="menu">
-                                <a class="item" href="/categories"><i class="list icon"></i> All Categories</a>
-                                <a class="item" href="/categories/create"><i class="add icon"></i> Add Categories</a>
+                                <a class="item {{ AppHelper::is_active('categories') }}" href="/categories"><i class="list icon"></i> All Categories</a>
+                                <a class="item {{ AppHelper::is_active('categories/create') }}" href="/categories/create"><i class="add icon"></i> Add Categories</a>
                             </div>
                         </div>
-                        <div class="ui dropdown item">
+                        <div class="ui dropdown item {{ AppHelper::is_active_parent('users') }}">
                             Users
                             <i class="dropdown icon"></i>
                             <div class="menu">
-                                <a class="item" href="/users"><i class="list icon"></i> All users</a>
-                                <a class="item" href="/users/create"><i class="add icon"></i> Add User</a>
+                                <a class="item {{ AppHelper::is_active('users') }}" href="/users"><i class="list icon"></i> All users</a>
+                                <a class="item {{ AppHelper::is_active('users/create') }}" href="/users/create"><i class="add icon"></i> Add User</a>
                             </div>
                         </div>
-                        <div class="ui dropdown item right">
+                        <div class="ui dropdown item {{ AppHelper::is_active_parent('users/'.Auth::user()->id) }} right">
                             @if (Auth::check())
                                 <i class="user icon"></i>
                                 {{Auth::user()->first_name}} {{Auth::user()->last_name}} 
                                 <div class="menu">
-                                  <a class="item" href="/users/{{Auth::user()->id}}/edit"><i class="settings icon"></i> User profile</a>
+                                  <a class="item {{ AppHelper::is_active('users/'.Auth::user()->id.'/edit') }}" href="/users/{{ Auth::user()->id }}/edit"><i class="settings icon"></i> User profile</a>
                                   <a class="item" href="/logout"><i class="sign out icon"></i> Logout</a>
                                 </div>
                             @else

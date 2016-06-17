@@ -9,4 +9,6 @@ body > .grid { height: 100%; }
 body > .container { margin-left: 150px; margin-top: 50px; padding-bottom: 100px; }
 .ui.menu { @include border-radius(0); }
 
+.ui.inverted.menu .active-parent.item { background: rgba(255,255,255,.15); color: #fff !important; }
+
 h1.ui.header { padding-top: 10px; }

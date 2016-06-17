@@ -28,7 +28,8 @@ $(function() {
 		type: 'datetime'
 	});
 
-	$('.ui.dropdown').dropdown({on: 'focus'})
+	$('.ui.dropdown').dropdown({on: 'hover'})
+	$('form .ui.dropdown').dropdown({on: 'focus'})
 
 	$('.ui.checkbox').checkbox();
 
