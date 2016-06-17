@@ -72,8 +72,8 @@ class UserController extends Controller
                 $query->orderBy($key, $value);
                 unset($request->query()[$key]);
             } else if($key == 'query') {
-                $query->select('name', 'id');
-                $query->where('name', 'like', '%'.$value.'%');
+                $query->select('full_name', 'id');
+                $query->where('full_name', 'like', '%'.$value.'%');
             } else {
                 $query->where($request->query());
             }
