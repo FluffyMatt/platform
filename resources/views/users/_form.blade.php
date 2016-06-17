@@ -6,8 +6,13 @@
 	<div class="ui padded segment">
 
 		<div class="required field">
-			<label>Name</label>
-			<input name="name" type="text" value="{{ old('name', @$user->name) }}">
+			<label>First name</label>
+			<input name="first_name" type="text" value="{{ old('first_name', @$user->first_name) }}">
+		</div>
+
+		<div class="required field">
+			<label>Last name</label>
+			<input name="last_name" type="text" value="{{ old('last_name', @$user->last_name) }}">
 		</div>
 
 		<div class="required field">

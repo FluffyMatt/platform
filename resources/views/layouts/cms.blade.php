@@ -44,7 +44,7 @@
                         <div class="ui dropdown item right">
                             @if (Auth::check())
                                 <i class="user icon"></i>
-                                {{Auth::user()->name}}
+                                {{Auth::user()->first_name}} {{Auth::user()->last_name}} 
                                 <div class="menu">
                                   <a class="item" href="/users/{{Auth::user()->id}}/edit"><i class="settings icon"></i> User profile</a>
                                   <a class="item" href="/logout"><i class="sign out icon"></i> Logout</a>
