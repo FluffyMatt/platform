@@ -11,7 +11,11 @@ $(function() {
 			skin: 'flat,/js/flat/',
 			customConfig: '/js/ckeditor.js'
 		})
-	}
+	};
+
+	$('#save').click(function() {
+		$('.ui.form').submit();
+	});
 
 	// Semantic
    $('.ui.calendar').calendar({
@@ -46,7 +50,7 @@ $(function() {
 				$.each(data.users, function(index, item) {
 
 					var result = {
-						name : item.name,
+						name : item.full_name,
 						value : item.id
 					};
 
