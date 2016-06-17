@@ -31,11 +31,13 @@ class ContentController extends Controller
 
         if ($saved = Content::create($data)) {
             if ($saved->users()->sync($data['users'])){ #&& $saved->users()->sync($data['categories'])) {
+                $request->session()->flash('success', 'Content saved successfully');
                 return redirect('content/'.$saved->id.'/edit');
             }
         }
         else {
             $request->session()->flash('error', 'Error saving content');
+            return redirect('content/create')->withInputs($request->all());
         }
 
     }
@@ -43,7 +45,7 @@ class ContentController extends Controller
     public function edit($id) {
 
         $content = Content::with('users')->findOrFail($id);
-
+        
         return view('content.edit', ['content' => $content]);
 
     }
@@ -52,9 +54,11 @@ class ContentController extends Controller
 
         $content = Content::findOrFail($id);
 
-        if ($content->update($data)) {
-            $request->session()->flash('success', 'Content saved');
-            return redirect('content/'.$id.'/edit');
+        if ($content->update($request->all())) {
+            if ($content->users()->sync($request->input('users'))) {
+                $request->session()->flash('success', 'Content saved');
+                return redirect('content/'.$id.'/edit');
+            }
         }
         else {
             $request->session()->flash('error', 'Error saving content');
@@ -67,6 +71,7 @@ class ContentController extends Controller
         $content = Content::findOrFail($id);
 
         if ($content->delete($id)) {
+            $content->users()->detach();
             $request->session()->flash('success', 'Content deleted');
             return redirect('content');
         }

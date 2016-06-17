@@ -10,7 +10,9 @@
 
 @section('content')
 
-<form class="ui form" action="/content" method="post">
+<form class="ui form" action="/content/{{ $content->id }}" method="POST">
+
+	{{ method_field('PATCH') }}
 
 	@include('content._form')
 

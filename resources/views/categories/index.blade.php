@@ -36,9 +36,9 @@
 						{{ $category->published_at }}
 					</td>
 					<td>
-						<div class="ui teal buttons">
+						<div class="ui teal small buttons">
 							<a class="ui button" href="/categories/{{ $category->id }}/edit">Edit</a>
-							<div class="ui floating dropdown icon small button">
+							<div class="ui floating dropdown icon button">
 								<i class="dropdown icon"></i>
 								<div class="menu">
 									<div class="item">

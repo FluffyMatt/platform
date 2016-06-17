@@ -59,16 +59,27 @@
 
 			<div class="field">
 				<label for="users">Authors</label>
-				<select class="ui fluid search dropdown authors" multiple="" name="users[]"></select>
+				<select class="ui fluid search dropdown authors" multiple="" name="users[]">
+					@if(old('status', @$content->users))
+						@foreach($content->users as $user)
+							<option selected value="{{ $user->id }}">{{ $user->full_name }}</option>
+						@endforeach
+					@endif
+				</select>
 			</div>
 
 			<div class="field">
 				<label for="categories">Categories</label>
 				<select class="ui fluid search dropdown categories" multiple="" name="categories[]"></select>
+				@if(old('status', @$content->categories))
+					@foreach($content->categories as $category)
+						<option selected value="{{ $category->id }}">{{ $category->title }}</option>
+					@endforeach
+				@endif
 			</div>
 
 			</div>
-			
+
 		</div>
 
 	</div>

@@ -48,7 +48,7 @@
 						{{ $user->author ? 'Yes' : 'No' }}
 					</td>
 					<td>
-						<div class="ui teal buttons">
+						<div class="ui teal small buttons">
 							<a class="ui button" href="/users/{{ $user->id }}/edit">Edit</a>
 							<div class="ui floating dropdown icon button">
 								<i class="dropdown icon"></i>

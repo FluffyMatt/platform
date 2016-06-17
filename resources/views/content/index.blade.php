@@ -10,7 +10,6 @@
 
 @section('content')
 
-	@include('shared._filter', [$filters])
 
 	<table class="ui celled table">
 		<thead>
@@ -26,7 +25,7 @@
 			@forelse ($allContent as $content)
 				<tr>
 					<td>
-						{{ $content->id }}
+						{{ $content->title }}
 					</td>
 					<td>
 						{{ $content->status }}
@@ -43,12 +42,11 @@
 							<div class="ui floating dropdown icon small button">
 								<i class="dropdown icon"></i>
 								<div class="menu">
-									<div class="item">
+									<div class="item delete-confirm">
 										<form action="/content/{{ $content->id }}" method="POST">
 											{{ csrf_field() }}
 											{{ method_field('DELETE') }}
-											<div class="item">
-												<button class="confirm-delete ui basic red button"><i class="delete icon"></i> Delete</button>
+												<i class="delete red icon"></i> Delete
 											</div>
 										</form>
 									</div>

@@ -1,10 +1,10 @@
 <form action="" method="get">
 
-	<div class="ui menu">
+	<div class="ui segment">
 
 		@if(isset($filters['search']))
 
-			<div class="ui item">
+			<div class="field">
 		      <select class="ui search dropdown" name="{{$filters['search']['name']}}">
 				  <option value="">Select user</option>
 				  @foreach($filters['search']['data'] as $key => $value)
@@ -22,12 +22,16 @@
 
 				@if($element !== 'search')
 
-					<div class="item">
-						<div class="ui input selection dropdown">
+					<div class="field">
+						<label for="{{$element}}">{{ucfirst($element)}}</label>
+						<div class="ui selection dropdown" title="{{ucfirst($element)}}">
 							<input type="hidden" name="{{$element}}" value="{{app('request')->input($element)}}">
 							<i class="dropdown icon"></i>
 							<div class="default text">{{ucfirst($element)}}</div>
 							<div class="menu">
+								<div class="header">
+									Filter by {{$element}}
+								</div>
 								@foreach($value as $key => $value)
 
 									<div class="item" data-value="{{$key}}">{{$value}}</div>
@@ -44,7 +48,7 @@
 		@endif
 
 	<div class="right item">
-		<button class="ui primary button">Filter</button>
+		<button class="ui button">Filter</button>
 	</div>
 
 	</div>

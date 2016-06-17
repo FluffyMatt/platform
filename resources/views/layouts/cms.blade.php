@@ -44,7 +44,7 @@
                         <div class="ui dropdown item {{ AppHelper::is_active_parent('users/'.Auth::user()->id) }} right">
                             @if (Auth::check())
                                 <i class="user icon"></i>
-                                {{Auth::user()->first_name}} {{Auth::user()->last_name}} 
+                                {{Auth::user()->first_name}} {{Auth::user()->last_name}}
                                 <div class="menu">
                                   <a class="item {{ AppHelper::is_active('users/'.Auth::user()->id.'/edit') }}" href="/users/{{ Auth::user()->id }}/edit"><i class="settings icon"></i> User profile</a>
                                   <a class="item" href="/logout"><i class="sign out icon"></i> Logout</a>
@@ -59,10 +59,12 @@
         @endif
 
         @if (Auth::check())
-            <div class="ui container">
+            <div class="ui contain">
         @endif
 
         @include('shared._errors')
+        
+        @include('shared._alerts')
 
         @if (Auth::check())
 
