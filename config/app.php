@@ -208,6 +208,11 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         /*
+         * Custom classes
+         */
+        'AppHelper' => App\Helpers\AppHelper::class,
+
+        /*
          * Third party aliases
          */
         'Ldap' => Geeksquad\Ldap\Ldap::class,
