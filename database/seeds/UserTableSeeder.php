@@ -8,7 +8,8 @@ class UserTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name' => 'Matthew Stephens',
+                'first_name' => 'Matthew',
+                'last_name' =>  'Stephens',
                 'username' => 'StepheM06',
                 'email' => 'StepheM06@cpwplc.com',
                 'password' => bcrypt('StepheM06'),
@@ -17,7 +18,8 @@ class UserTableSeeder extends Seeder
                 'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
             ],
             [
-                'name' => 'Ben Knowles',
+                'first_name' => 'Ben'
+                'last_name' => 'Knowles',
                 'username' => 'KnowleB04',
                 'email' => 'KnowleB04@cpwplc.com',
                 'password' => bcrypt('KnowleB04'),
