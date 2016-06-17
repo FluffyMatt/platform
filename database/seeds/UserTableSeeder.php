@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
                 'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
             ],
             [
-                'first_name' => 'Ben'
+                'first_name' => 'Ben',
                 'last_name' => 'Knowles',
                 'username' => 'KnowleB04',
                 'email' => 'KnowleB04@cpwplc.com',
