@@ -32,8 +32,20 @@ class CategorySeeder extends Seeder
             ],
             [
                 'id' => 4,
+                'title' => 'iPhone',
+                'slug' =>  'iphone',
+                'parent_id' => 3
+            ],
+            [
+                'id' => 5,
                 'title' => 'iPhone 6s',
                 'slug' =>  'iphone-6s',
+                'parent_id' => 4
+            ],
+            [
+                'id' => 6,
+                'title' => 'iPad',
+                'slug' =>  'ipad',
                 'parent_id' => 3
             ],
         ]);
