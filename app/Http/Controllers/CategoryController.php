@@ -10,13 +10,15 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::orderBy('created_at', 'desc')->paginate(15);
+        $categories = Category::whereNull('parent_id')->orderBy('title', 'asc')->get();
 
         return view('categories.index', ['categories' => $categories]);
     }
 
     public function create() {
+
         return view('categories.create');
+
     }
 
     public function store(Request $request) {
