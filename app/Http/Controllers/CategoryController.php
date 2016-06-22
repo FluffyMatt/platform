@@ -17,7 +17,9 @@ class CategoryController extends Controller
 
     public function create() {
 
-        return view('categories.create');
+		$options = $this->options();
+
+        return view('categories.create', compact('options'));
 
     }
 
@@ -39,7 +41,9 @@ class CategoryController extends Controller
 
         $category = Category::findOrFail($id);
 
-        return view('categories.edit', ['category' => $category]);
+		$options = $this->options();
+
+        return view('categories.edit', compact('category', 'options'));
 
     }
 
@@ -70,5 +74,13 @@ class CategoryController extends Controller
         }
 
     }
+
+	public function options() {
+
+		return [
+			'categories' => Category::orderBy('title', 'asc')->pluck('title', 'id'),
+		];
+
+	}
 
 }

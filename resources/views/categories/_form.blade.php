@@ -20,7 +20,6 @@
 			</div>
 		</div>
 
-
 	</div>
 
 	<div class="five wide column">
@@ -28,10 +27,15 @@
 		<div class="ui segments">
 			<div class="ui padded segment">
 
-			<div class="field">
-				<label for="parent_id">Parent</label>
-				<select class="ui fluid search dropdown parent" name="parent_id"></select>
-			</div>
+				<div class="field">
+					<label for="parent_id">Parent</label>
+					<select name="parent_id" class="ui search selection dropdown">
+						<option value=""></option>
+						@foreach ($options['categories'] as $id => $title)
+							<option value="{{ $id }}" @if (old('parent_id', @$category->parent_id) == $id) {{ 'selected' }} @endif>{{ $title }}</option>
+						@endforeach
+					</select>
+				</div>
 
 			</div>
 		</div>
