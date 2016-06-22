@@ -13,10 +13,9 @@
 	<table class="ui celled table">
 		<thead>
 			<tr>
+				<th>ID</th>
 				<th>Title</th>
-				<th>Status</th>
-				<th>Created</th>
-				<th>Published</th>
+				<th>Parent</th>
 				<th>Action</th>
 			</tr>
 		</thead>
@@ -27,13 +26,12 @@
 						{{ $category->id }}
 					</td>
 					<td>
-						{{ $category->status }}
+						{{ $category->title }}
 					</td>
 					<td>
-						{{ $category->created_at }}
-					</td>
-					<td>
-						{{ $category->published_at }}
+						@if ($category->parent)
+							{{ $category->parent->title }}
+						@endif
 					</td>
 					<td>
 						<div class="ui teal small buttons">
