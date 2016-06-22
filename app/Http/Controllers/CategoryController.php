@@ -37,7 +37,7 @@ class CategoryController extends Controller
 
     public function edit($id) {
 
-        $category = Category::with('users')->findOrFail($id);
+        $category = Category::findOrFail($id);
 
         return view('categories.edit', ['category' => $category]);
 
