@@ -16,7 +16,7 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug')->unique();
-            $table->integer('parent_id');
+            $table->integer('parent_id')->nullable();
             $table->index(['slug', 'title', 'parent_id']);
         });
     }
