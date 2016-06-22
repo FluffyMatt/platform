@@ -27,4 +27,14 @@ class AppHelper
 		return $active;
 	}
 
+	// Tree level indenter
+	public static function indent($level)
+	{
+		$indent = '';
+		for ($i = 0; $i < $level; $i++) {
+			$indent .= '- ';
+		}
+		return $indent;
+	}
+
 }
