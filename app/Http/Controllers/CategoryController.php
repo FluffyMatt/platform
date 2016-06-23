@@ -42,6 +42,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
 
 		$options = $this->options();
+		unset($options['categories'][$id]); # Remove self from category list to avoid self-referencing relationship
 
         return view('categories.edit', compact('category', 'options'));
 
