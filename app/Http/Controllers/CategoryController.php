@@ -78,7 +78,7 @@ class CategoryController extends Controller
 	public function options() {
 
 		return [
-			'categories' => Category::orderBy('title', 'asc')->pluck('title', 'id'),
+			'categories' => Category::tree(),
 		];
 
 	}
