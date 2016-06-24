@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Content;
+use App\Category;
 use App\Http\Requests;
 use App\Http\Requests\FilterRequest;
 
@@ -22,18 +23,20 @@ class ContentController extends Controller
     }
 
     public function create() {
-        return view('content.create');
+
+		$options = $this->options();
+
+        return view('content.create', compact('options'));
+
     }
 
     public function store(Request $request) {
 
-        $data = $request->all();
-
-        if ($saved = Content::create($data)) {
-            if ($saved->users()->sync($data['users'])){ #&& $saved->users()->sync($data['categories'])) {
-                $request->session()->flash('success', 'Content saved successfully');
-                return redirect('content/'.$saved->id.'/edit');
-            }
+        if ($content = Content::create($request->all())) {
+			$request->session()->flash('success', 'Content saved successfully');
+			$content->users()->sync($request->input('users'));
+			$content->categories()->sync($request->input('categories'));
+			return redirect('content/'.$content->id.'/edit');
         }
         else {
             $request->session()->flash('error', 'Error saving content');
@@ -45,8 +48,10 @@ class ContentController extends Controller
     public function edit($id) {
 
         $content = Content::with('users')->findOrFail($id);
-        
-        return view('content.edit', ['content' => $content]);
+
+		$options = $this->options();
+
+        return view('content.edit', compact('content', 'options'));
 
     }
 
@@ -55,10 +60,10 @@ class ContentController extends Controller
         $content = Content::findOrFail($id);
 
         if ($content->update($request->all())) {
-            if ($content->users()->sync($request->input('users'))) {
-                $request->session()->flash('success', 'Content saved');
-                return redirect('content/'.$id.'/edit');
-            }
+            $content->users()->sync($request->input('users'));
+            $content->users()->sync($request->input('categories'));
+	        $request->session()->flash('success', 'Content saved successfully');
+	        return redirect('content/'.$id.'/edit');
         }
         else {
             $request->session()->flash('error', 'Error saving content');
@@ -80,5 +85,13 @@ class ContentController extends Controller
         }
 
     }
+
+	public function options() {
+
+		return [
+			'categories' => Category::tree(),
+		];
+
+	}
 
 }
