@@ -17,6 +17,7 @@ class CreateContentTable extends Migration
             $table->integer('parent_id');
             $table->string('slug')->unique();
             $table->string('status');
+            $table->boolean('seo_index');
             $table->string('title');
             $table->string('seo_title');
             $table->string('description');

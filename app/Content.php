@@ -10,6 +10,7 @@ class Content extends Model
     protected $table = 'content';
 
     protected $fillable = [
+		'seo_index',
         'title',
         'seo_title',
         'description',
