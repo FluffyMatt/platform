@@ -25,17 +25,12 @@
 			<input name="username" type="text" value="{{ old('username', @$user->username) }}">
 		</div>
 
-		<div class="required field">
-			<label>Password</label>
-			<input name="password" type="text" value="{{ old('password', @$user->password) }}">
-		</div>
-
 		<div class="inline field">
 		  	<div class="ui toggle checkbox">
 		  		<input name="admin" type="checkbox" value="1" tabindex="0" class="hidden" {{ old('admin', @$user->admin) == '1' ? 'checked' : '' }}>
 				<label>Admin</label>
 		  	</div>
-		  </div>
+		</div>
 
 		<div class="inline field">
 		  	<div class="ui toggle checkbox">
@@ -50,4 +45,5 @@
 				<label>Author</label>
 		  	</div>
 		</div>
+		
 	</div>
