@@ -33,9 +33,9 @@ class ContentController extends Controller
     public function store(Request $request) {
 
         if ($content = Content::create($request->all())) {
-			$request->session()->flash('success', 'Content saved successfully');
 			$content->users()->sync($request->input('users'));
 			$content->categories()->sync($request->input('categories'));
+			$request->session()->flash('success', 'Content saved successfully');
 			return redirect('content/'.$content->id.'/edit');
         }
         else {
@@ -61,7 +61,7 @@ class ContentController extends Controller
 
         if ($content->update($request->all())) {
             $content->users()->sync($request->input('users'));
-            $content->users()->sync($request->input('categories'));
+            $content->categories()->sync($request->input('categories'));
 	        $request->session()->flash('success', 'Content saved successfully');
 	        return redirect('content/'.$id.'/edit');
         }
