@@ -14,23 +14,18 @@ class ContentRequest extends Request
 
     public function rules()
     {
+		$current_slug = \Route::input('content');
+
         return [
-            'title' => 'required',
-            'status' => 'required',
-			'slug' => 'required|unique:content'
+            'title' => "required",
+            'status' => "required",
+			'slug' => "required|unique:content,slug,$current_slug"
         ];
     }
 
 	public function all()
 	{
 		$data = parent::all();
-
-		if (!isset($data["users"])) {
-			$data["users"] = [];
-		}
-		if (!isset($data["categories"])) {
-			$data["categories"] = [];
-		}
 
 		return $data;
 	}
