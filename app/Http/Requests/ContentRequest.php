@@ -27,6 +27,10 @@ class ContentRequest extends Request
 	{
 		$data = parent::all();
 
+		if (empty($data['published_at'])) {
+			unset($data['published_at']);
+		}
+
 		return $data;
 	}
 }
