@@ -6,7 +6,7 @@
 
 // Custom CSS
 body > .grid { height: 100%; }
-body > .contain { margin: 1%;  margin-top: 35px; padding-bottom: 100px; }
+body > .contain { margin: 35px 2rem 100px; }
 .ui.menu { @include border-radius(0); }
 
 .ui.inverted.menu .active-parent.item { background: rgba(255,255,255,.15); color: #fff !important; }
