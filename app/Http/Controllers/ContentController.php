@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Content;
 use App\Category;
 use App\Http\Requests;
 use App\Http\Requests\FilterRequest;
+use App\Http\Requests\ContentRequest;
 
 class ContentController extends Controller
 {
@@ -24,17 +26,18 @@ class ContentController extends Controller
 
     public function create() {
 
+		$content = new Content();
+
 		$options = $this->options();
 
-        return view('content.create', compact('options'));
+        return view('content.create', compact('content', 'options'));
 
     }
 
-    public function store(Request $request) {
-
+    public function store(ContentRequest $request) {
         if ($content = Content::create($request->all())) {
-			$content->users()->sync($request->input('users'));
-			$content->categories()->sync($request->input('categories'));
+			$content->users()->sync($request->input('users', []));
+			$content->categories()->sync($request->input('categories', []));
 			$request->session()->flash('success', 'Content saved successfully');
 			return redirect('content/'.$content->id.'/edit');
         }
@@ -55,13 +58,13 @@ class ContentController extends Controller
 
     }
 
-    public function update(Request $request, $id) {
+    public function update(ContentRequest $request, $id) {
 
         $content = Content::findOrFail($id);
 
         if ($content->update($request->all())) {
-            $content->users()->sync($request->input('users'));
-            $content->categories()->sync($request->input('categories'));
+            $content->users()->sync($request->input('users', []));
+            $content->categories()->sync($request->input('categories', []));
 	        $request->session()->flash('success', 'Content saved successfully');
 	        return redirect('content/'.$id.'/edit');
         }
