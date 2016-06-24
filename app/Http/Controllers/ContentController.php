@@ -26,7 +26,9 @@ class ContentController extends Controller
 
     public function create() {
 
-		$content = new Content();
+		$content = new Content([
+			'seo_index' => 1
+		]);
 
 		$options = $this->options();
 
