@@ -32,7 +32,7 @@
 
 		</div>
 
-		@include('.shared._seo')
+		@include('content._fields_seo')
 
 	</div>
 
