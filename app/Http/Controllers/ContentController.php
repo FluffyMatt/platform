@@ -25,80 +25,71 @@ class ContentController extends Controller
         return view('content.index', ['allContent' => $allContent, 'filters' => $filters]);
     }
 
-    public function create() {
+    public function create()
+    {
+        $content = new Content([
+            'seo_index' => 1
+        ]);
 
-		$content = new Content([
-			'seo_index' => 1
-		]);
-
-		$options = $this->options();
+        $options = $this->options();
 
         return view('content.create', compact('content', 'options'));
-
     }
 
-    public function store(ContentRequest $request) {
+    public function store(ContentRequest $request)
+    {
         if ($content = Content::create($request->all())) {
-			$content->users()->sync($request->input('users', []));
-			$content->categories()->sync($request->input('categories', []));
-			$request->session()->flash('success', 'Content saved successfully');
-			return redirect('content/'.$content->id.'/edit');
-        }
-        else {
+            $content->users()->sync($request->input('users', []));
+            $content->categories()->sync($request->input('categories', []));
+            $request->session()->flash('success', 'Content saved successfully');
+            return redirect('content/'.$content->id.'/edit');
+        } else {
             $request->session()->flash('error', 'Error saving content');
             return redirect('content/create')->withInputs($request->all());
         }
-
     }
 
-    public function edit($id) {
-
+    public function edit($id)
+    {
         $content = Content::findOrFail($id);
 
-		$options = $this->options();
+        $options = $this->options();
 
         return view('content.edit', compact('content', 'options'));
-
     }
 
-    public function update(ContentRequest $request, $id) {
-
+    public function update(ContentRequest $request, $id)
+    {
         $content = Content::findOrFail($id);
 
         if ($content->update($request->all())) {
             $content->users()->sync($request->input('users', []));
             $content->categories()->sync($request->input('categories', []));
-	        $request->session()->flash('success', 'Content saved successfully');
-	        return redirect('content/'.$id.'/edit');
-        }
-        else {
+            $request->session()->flash('success', 'Content saved successfully');
+            return redirect('content/'.$id.'/edit');
+        } else {
             $request->session()->flash('error', 'Error saving content');
         }
-
     }
 
-    public function destroy(Request $request, $id) {
-
+    public function destroy(Request $request, $id)
+    {
         $content = Content::findOrFail($id);
 
         if ($content->delete($id)) {
             $content->users()->detach();
             $request->session()->flash('success', 'Content deleted');
             return redirect('content');
-        }
-        else {
+        } else {
             $request->session()->flash('error', 'Error deleting content');
         }
-
     }
 
-	public function options() {
-
-		return [
-			'categories' => Category::tree(),
+    public function options()
+    {
+        return [
+            'categories' => Category::tree(),
             'users' => User::all()->pluck('id', 'full_name'),
-		];
-
-	}
-
+        ];
+    }
 }
