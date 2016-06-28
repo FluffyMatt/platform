@@ -60,14 +60,21 @@
 			<div class="field">
 				<label for="users">Authors</label>
 				<select name="users[]" class="ui fluid search dropdown authors" multiple>
-					@if(old('status', @$content->users))
-						@foreach($content->users as $user)
-							<option selected value="{{ $user->id }}">{{ $user->full_name }}</option>
+					@foreach ($options['users'] as $full_name => $id)
+						<?php $selected = ''; ?>
+						@foreach (old('users', @$content->users()->pluck('user_id')) as $user_id)
+							@if ($user_id == $id)
+								<?php $selected = 'selected'; ?>
+							@endif
 						@endforeach
-					@endif
+						@if (empty(old('users', @$content->users->toArray())) && Auth::user()->id == $id)
+							<?php $selected = 'selected'; ?>
+						@endif
+						<option value="{{ $id }}" {{ $selected }}>{{ $full_name }}</option>
+					@endforeach
 				</select>
 			</div>
-			
+
 			<div class="field">
 				<label for="categories">Categories</label>
 				<select name="categories[]" class="ui fluid search dropdown" multiple>
