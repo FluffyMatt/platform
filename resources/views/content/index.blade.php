@@ -46,8 +46,7 @@
 										<form action="/content/{{ $content->id }}" method="POST">
 											{{ csrf_field() }}
 											{{ method_field('DELETE') }}
-												<i class="delete red icon"></i> Delete
-											</div>
+											<i class="delete red icon"></i> Delete
 										</form>
 									</div>
 								</div>
