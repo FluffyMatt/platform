@@ -65,23 +65,27 @@ class UserController extends Controller
 
     public function search(Request $request) {
 
-        $query = DB::table('users');
+        if ($request->query()) {
 
-        foreach ($request->query() as $key => $value) {
-            if ($key == 'orderby') {
-                $query->orderBy($key, $value);
-                unset($request->query()[$key]);
-            } else if($key == 'query') {
-                $query->select('full_name', 'id');
-                $query->where('full_name', 'like', '%'.$value.'%');
-            } else {
-                $query->where($request->query());
+            $query = DB::table('users');
+
+            foreach ($request->query() as $key => $value) {
+                if ($key == 'orderby') {
+                    $query->orderBy($key, $value);
+                    unset($request->query()[$key]);
+                } else if($key == 'query') {
+                    $query->select('full_name', 'id');
+                    $query->where('full_name', 'like', '%'.$value.'%');
+                } else {
+                    $query->where($request->query());
+                }
             }
+
+            $users = $query->get();
+
         }
 
-        $users = $query->get();
-
-        if ($users) {
+        if (isset($users)) {
             return response()->json(['success' => true, 'users' => $users], 200);
         }
 
