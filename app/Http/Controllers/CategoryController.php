@@ -12,7 +12,7 @@ class CategoryController extends Controller
     {
         $categories = Category::whereNull('parent_id')->orderBy('title', 'asc')->get();
 
-        return view('categories.index', ['categories' => $categories]);
+        return view('categories.index', compact('categories'));
     }
 
     public function create() {
