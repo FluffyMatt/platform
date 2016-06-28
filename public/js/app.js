@@ -1,10 +1,5 @@
 $(function() {
 
-	// API Endpoints
-	$.fn.api.settings.api = {
-		'search user'        : '/api/v1/users/search?query={/value}'
-	};
-
 	// CKEDITOR
 	if ($('[name="body"]').length > 0) {
 		CKEDITOR.replace('body', {
@@ -45,31 +40,5 @@ $(function() {
 	$('form .ui.dropdown').dropdown({on: 'focus'})
 
 	$('.ui.checkbox').checkbox();
-
-	$('.authors').dropdown({
-		apiSettings: {
-			action: 'search user',
-			on: 'now',
-			onResponse : function(data) {
-
-				var response = {
-					results : {}
-				};
-
-				$.each(data.users, function(index, item) {
-
-					var result = {
-						name : item.full_name,
-						value : item.id
-					};
-
-					response.results[index] = result;
-
-				});
-				console.log(response);
-				return response;
-			}
-		}
-	});
 
 });
