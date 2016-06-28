@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\User;
 use DB;
@@ -25,7 +24,6 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {
-
         $user = User::create($request->all());
 
         return redirect('users');
@@ -63,17 +61,16 @@ class UserController extends Controller
         return redirect('users');
     }
 
-    public function search(Request $request) {
-
+    public function search(Request $request)
+    {
         if ($request->query()) {
-
             $query = DB::table('users');
 
             foreach ($request->query() as $key => $value) {
                 if ($key == 'orderby') {
                     $query->orderBy($key, $value);
                     unset($request->query()[$key]);
-                } else if($key == 'query') {
+                } elseif ($key == 'query') {
                     $query->select('full_name', 'id');
                     $query->where('full_name', 'like', '%'.$value.'%');
                 } else {
@@ -82,7 +79,6 @@ class UserController extends Controller
             }
 
             $users = $query->get();
-
         }
 
         if (isset($users)) {
@@ -90,7 +86,5 @@ class UserController extends Controller
         }
 
         return response()->json(['success' => false], 404);
-
     }
-
 }
