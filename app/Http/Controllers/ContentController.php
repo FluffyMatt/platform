@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Content;
 use App\Category;
+use App\User;
 use App\Http\Requests;
 use App\Http\Requests\FilterRequest;
 use App\Http\Requests\ContentRequest;
@@ -52,7 +53,7 @@ class ContentController extends Controller
 
     public function edit($id) {
 
-        $content = Content::with('users')->findOrFail($id);
+        $content = Content::findOrFail($id);
 
 		$options = $this->options();
 
@@ -95,6 +96,7 @@ class ContentController extends Controller
 
 		return [
 			'categories' => Category::tree(),
+            'users' => User::all()->pluck('id', 'full_name'),
 		];
 
 	}
