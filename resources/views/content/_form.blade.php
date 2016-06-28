@@ -67,20 +67,18 @@
 					@endif
 				</select>
 			</div>
-
+			
 			<div class="field">
 				<label for="categories">Categories</label>
 				<select name="categories[]" class="ui fluid search dropdown" multiple>
 					<option value=""></option>
 					@foreach ($options['categories'] as $id => $title)
 						<?php $selected = ''; ?>
-						@if (old('categories', @$content->categories))
-							@foreach (old('categories', @$content->categories) as $category)
-								@if ($category->id == $id)
-									<?php $selected = 'selected'; ?>
-								@endif
-							@endforeach
-						@endif
+						@foreach (old('categories', @$content->categories()->pluck('category_id')) as $category_id)
+							@if ($category_id == $id)
+								<?php $selected = 'selected'; ?>
+							@endif
+						@endforeach
 						<option value="{{ $id }}" {{ $selected }}>{{ $title }}</option>
 					@endforeach
 				</select>
