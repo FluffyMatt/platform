@@ -15,73 +15,63 @@ class CategoryController extends Controller
         return view('categories.index', compact('categories'));
     }
 
-    public function create() {
-
+    public function create()
+	{
 		$options = $this->options();
 
         return view('categories.create', compact('options'));
-
     }
 
-    public function store(Request $request) {
-
+    public function store(Request $request)
+	{
         $data = $request->all();
 
         if ($saved = Category::create($data)) {
             $request->session()->flash('success', 'Category saved');
             return redirect('categories');
-        }
-        else {
+        } else {
             $request->session()->flash('error', 'Error saving category');
         }
-
     }
 
-    public function edit($id) {
-
+    public function edit($id)
+	{
         $category = Category::findOrFail($id);
 
 		$options = $this->options();
 		unset($options['categories'][$id]); # Remove self from category list to avoid self-referencing relationship
 
         return view('categories.edit', compact('category', 'options'));
-
     }
 
-    public function update(Request $request, $id) {
-
+    public function update(Request $request, $id)
+	{
         $category = Category::findOrFail($id);
 
         if ($content->update($data)) {
             $request->session()->flash('success', 'Category saved');
             return redirect('categories');
-        }
-        else {
+        } else {
             $request->session()->flash('error', 'Error saving category');
         }
-
     }
 
-    public function destroy(Request $request, $id) {
-
+    public function destroy(Request $request, $id)
+	{
         $category = Category::findOrFail($id);
 
         if ($category->delete($id)) {
             $request->session()->flash('success', 'Category deleted');
             return redirect('categories');
-        }
-        else {
+        } else {
             $request->session()->flash('error', 'Error deleting category');
         }
-
     }
 
-	public function options() {
-
+	public function options()
+	{
 		return [
 			'categories' => Category::tree(),
 		];
-
 	}
-
 }
