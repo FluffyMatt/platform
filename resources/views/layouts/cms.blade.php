@@ -33,6 +33,14 @@
                                 <a class="item {{ AppHelper::is_active('categories/create') }}" href="/categories/create"><i class="add icon"></i> Add Categories</a>
                             </div>
                         </div>
+                        <div class="ui dropdown item {{ AppHelper::is_active_parent('menus') }}">
+                            <a href="/menus">Menus</a>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a class="item {{ AppHelper::is_active('menus') }}" href="/menus"><i class="list icon"></i> All Menus</a>
+                                <a class="item {{ AppHelper::is_active('menus/create') }}" href="/menus/create"><i class="add icon"></i> Add Menu</a>
+                            </div>
+                        </div>
                         <div class="ui dropdown item {{ AppHelper::is_active_parent('users') }}">
                             <a href="/users">Users</a>
                             <i class="dropdown icon"></i>
