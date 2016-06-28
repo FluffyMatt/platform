@@ -11,7 +11,7 @@ class AppHelper
 	public static function is_active($segment)
 	{
 		$active = '';
-		if (Request::is($segment) || Request::is($segment.'/*')) {
+		if (Request::is($segment)) {
 			$active = 'active';
 		}
 		return $active;
