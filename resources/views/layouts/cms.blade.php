@@ -18,7 +18,7 @@
                     <div class="ui menu inverted">
                         <a class="header item">CMS</a>
                         <div class="ui dropdown item {{ AppHelper::is_active_parent('content') }}">
-                            Content
+                            <a href="/content">Content</a>
                             <i class="dropdown icon"></i>
                             <div class="menu">
                                 <a class="item {{ AppHelper::is_active('content') }}" href="/content"><i class="list icon"></i> All Content</a>
@@ -26,15 +26,23 @@
                             </div>
                         </div>
                         <div class="ui dropdown item {{ AppHelper::is_active_parent('categories') }}">
-                            Categories
+                            <a href="/categories">Categories</a>
                             <i class="dropdown icon"></i>
                             <div class="menu">
                                 <a class="item {{ AppHelper::is_active('categories') }}" href="/categories"><i class="list icon"></i> All Categories</a>
                                 <a class="item {{ AppHelper::is_active('categories/create') }}" href="/categories/create"><i class="add icon"></i> Add Categories</a>
                             </div>
                         </div>
+                        <div class="ui dropdown item {{ AppHelper::is_active_parent('menus') }}">
+                            <a href="/menus">Menus</a>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a class="item {{ AppHelper::is_active('menus') }}" href="/menus"><i class="list icon"></i> All Menus</a>
+                                <a class="item {{ AppHelper::is_active('menus/create') }}" href="/menus/create"><i class="add icon"></i> Add Menu</a>
+                            </div>
+                        </div>
                         <div class="ui dropdown item {{ AppHelper::is_active_parent('users') }}">
-                            Users
+                            <a href="/users">Users</a>
                             <i class="dropdown icon"></i>
                             <div class="menu">
                                 <a class="item {{ AppHelper::is_active('users') }}" href="/users"><i class="list icon"></i> All users</a>
@@ -44,7 +52,7 @@
                         <div class="ui dropdown item {{ AppHelper::is_active_parent('users/'.Auth::user()->id) }} right">
                             @if (Auth::check())
                                 <i class="user icon"></i>
-                                {{Auth::user()->first_name}} {{Auth::user()->last_name}}
+                                <a href="/users/{{ Auth::user()->id }}/edit">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</a>
                                 <div class="menu">
                                   <a class="item {{ AppHelper::is_active('users/'.Auth::user()->id.'/edit') }}" href="/users/{{ Auth::user()->id }}/edit"><i class="settings icon"></i> User profile</a>
                                   <a class="item" href="/logout"><i class="sign out icon"></i> Logout</a>
@@ -63,7 +71,7 @@
         @endif
 
         @include('shared._errors')
-        
+
         @include('shared._alerts')
 
         @if (Auth::check())
