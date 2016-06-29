@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Content extends Model
 {
 
+  use \Venturecraft\Revisionable\RevisionableTrait;
+
     protected $table = 'content';
 
     protected $fillable = [
