@@ -18,6 +18,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('categories', 'CategoryController');
     Route::resource('menus', 'MenuController');
     Route::resource('users', 'UserController');
+    Route::get('/content/revision/{id}', 'ContentController@revision');
+    Route::get('/content/rollback/{id}', 'ContentController@rollback');
 
     // Routes for Admin/Editor only
     Route::group(['middleware' => 'adminOrAuthor'], function() {
