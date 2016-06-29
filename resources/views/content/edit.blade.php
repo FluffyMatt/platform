@@ -16,6 +16,8 @@
 
 	@include('content._form')
 
+	@include('content._revisions')
+
 </form>
 
 @endsection
