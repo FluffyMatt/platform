@@ -55,7 +55,9 @@ class ContentController extends Controller
 
         $options = $this->options();
 
-        return view('content.edit', compact('content', 'options'));
+        $revisions = $content->revisionHistory()->orderBy('created_at', 'desc')->get();
+
+        return view('content.edit', compact('content', 'options', 'revisions'));
     }
 
     public function update(ContentRequest $request, $id)
@@ -83,6 +85,31 @@ class ContentController extends Controller
         } else {
             $request->session()->flash('error', 'Error deleting content');
         }
+    }
+
+    public function revision($id)
+    {
+        $revision = \Venturecraft\Revisionable\Revision::find($id);
+
+        return view('content.revision_view', compact('id', 'revision'));
+    }
+
+    public function rollback($id)
+    {
+        $revision = \Venturecraft\Revisionable\Revision::find($id);
+        $content = Content::findOrFail($revision->revisionable_id);
+
+        $data[$revision->fieldName] = [$revision->oldValue()];
+
+        if ($content->update($data)) {
+            $content->users()->sync($content->users());
+            $content->categories()->sync($content->categories());
+            $request->session()->flash('success', 'Revision has been restored');
+            return redirect('content/'.$revision->revisionable_id.'/edit');
+        } else {
+            $request->session()->flash('error', 'Revision failed to restore');
+        }
+
     }
 
     public function options()
