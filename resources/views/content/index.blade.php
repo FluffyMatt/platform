@@ -15,6 +15,7 @@
 		<thead>
 			<tr>
 				<th>Title</th>
+				<th>Type</th>
 				<th>Status</th>
 				<th>Created</th>
 				<th>Published</th>
@@ -26,6 +27,9 @@
 				<tr>
 					<td>
 						{{ $content->title }}
+					</td>
+					<td>
+						{{ $content->type }}
 					</td>
 					<td>
 						{{ $content->status }}
