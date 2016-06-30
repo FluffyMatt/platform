@@ -43,6 +43,16 @@
 			<div class="ui padded segment">
 
 			<div class="field">
+				<label for="type">Type</label>
+				<select class="ui fluid dropdown" name="type" id="type">
+					<option value=""></option>
+					@foreach ($options['types'] as $type)
+						<option value="{{ $type }}" @if(old('type', @$content->type) == $type) selected @endif>{{ ucfirst($type) }}</option>
+					@endforeach
+				</select>
+			</div>
+
+			<div class="field">
 				<label for="status">Status</label>
 				<select class="ui fluid dropdown" name="status" id="status">
 					<option value="draft" @if(old('status', @$content->status) == 'draft') selected @endif >Draft</option>
