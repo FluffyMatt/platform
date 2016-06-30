@@ -6,10 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Content extends Model
 {
-
 	use \Venturecraft\Revisionable\RevisionableTrait;
 
-	public $types = ['article', 'page', 'series', 'chapter'];
+	const types = ['article', 'page', 'series', 'chapter'];
 
 	protected $table = 'content';
 
