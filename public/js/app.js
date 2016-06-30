@@ -17,7 +17,7 @@ $(function() {
 	})
 
 	// Semantic
-   $('.ui.calendar').calendar({
+	$('.ui.calendar').calendar({
 		on: 'focus',
 		ampm: false,
 		formatter: {
@@ -33,8 +33,8 @@ $(function() {
 	});
 
 	$('.message .close').on('click', function() {
-	    $(this).closest('.message').transition('fade');
-	  });
+		$(this).closest('.message').transition('fade');
+	});
 
 	$('.ui.dropdown').dropdown({on: 'hover'})
 	$('form .ui.dropdown').dropdown({on: 'focus'})
