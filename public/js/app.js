@@ -1,6 +1,6 @@
 $(function() {
 
-	// CKEDITOR
+	// Ckeditor
 	if ($('[name="body"]').length > 0) {
 		CKEDITOR.replace('body', {
 			skin: 'flat,/js/flat/',
@@ -8,10 +8,12 @@ $(function() {
 		})
 	};
 
+	// Save button located outside form can trigger submit
 	$('#save').click(function() {
 		$('.ui.form').submit();
 	});
 
+	// Confirm delete
 	$('.item.delete-confirm').click(function() {
 		$(this).children('form').submit();
 	})
