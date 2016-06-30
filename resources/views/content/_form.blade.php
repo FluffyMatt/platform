@@ -20,7 +20,12 @@
 
 				<div id="content-slug" class="field">
 					<label for="slug">URL</label>
-					<input type="text" name="slug" value="{{ old('slug', @$content->slug) }}">
+					<div class="ui labeled input">
+						<div class="ui label">
+							{{ ENV('APP_URL') }}/
+						</div>
+						<input type="text" name="slug" value="{{ old('slug', @$content->slug) }}">
+					</div>
 				</div>
 
 				<div id="content-body" class="field">
