@@ -42,7 +42,7 @@
 
 			<div class="ui padded segment">
 
-			<div class="field">
+			<div class="field hide">
 				<label for="type">Type</label>
 				<select class="ui fluid dropdown" name="type" id="type">
 					<option value=""></option>

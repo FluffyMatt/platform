@@ -14,4 +14,7 @@ body > .contain {
 h1.ui.header {
   padding-top: 5px; }
 
+.hide {
+  display: none; }
+
 /*# sourceMappingURL=app.css.map */
