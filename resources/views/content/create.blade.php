@@ -1,8 +1,8 @@
 @extends('layouts.cms')
 
-@section('title', 'Adding new content')
+@section('title', 'Adding new '.$type)
 
-@section('header', 'Add content')
+@section('header', 'Add '.$type)
 
 @section('buttons')
 	@include('shared._buttons')

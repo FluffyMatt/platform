@@ -36,7 +36,7 @@ class ContentController extends Controller
 
 	        $options = $this->options();
 
-	        return view('content.create', compact('content', 'options'));
+	        return view('content.create', compact('content', 'options', 'type'));
 		} else {
 			abort(404);
 		}
