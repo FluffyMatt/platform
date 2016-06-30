@@ -5,7 +5,17 @@
 @section('header', 'Content')
 
 @section('buttons')
-	<a class="ui primary right floated button" href="/content/create">Add New</a>
+	<a class="ui primary right floated button" href="/content/create/page">Add Page</a>
+	<div class="ui primary right floated buttons">
+	  <a class="ui button" href="/content/create/article">Add Article</a>
+	  <div class="ui floating dropdown icon button">
+	    <i class="dropdown icon"></i>
+	    <div class="menu">
+		  <div class="item"><a href="/content/create/series">Add Series</a></div>
+	      <div class="item"><a href="/content/create/chapter">Add Chapter</a></div>
+	    </div>
+	  </div>
+	</div>
 @endsection
 
 @section('content')
