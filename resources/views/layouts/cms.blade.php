@@ -22,7 +22,10 @@
                             <i class="dropdown icon"></i>
                             <div class="menu">
                                 <a class="item {{ AppHelper::is_active('content') }}" href="/content"><i class="list icon"></i> All Content</a>
-                                <a class="item {{ AppHelper::is_active('content/create') }}" href="/content/create"><i class="add icon"></i> Add Content</a>
+                                <a class="item {{ AppHelper::is_active('content/create/article') }}" href="/content/create/article"><i class="add icon"></i> Add Article</a>
+                                <a class="item {{ AppHelper::is_active('content/create/page') }}" href="/content/create/page"><i class="add icon"></i> Add Page</a>
+                                <a class="item {{ AppHelper::is_active('content/create/series') }}" href="/content/create/series"><i class="add icon"></i> Add Series</a>
+                                <a class="item {{ AppHelper::is_active('content/create/chapter') }}" href="/content/create/chapter"><i class="add icon"></i> Add Chapter</a>
                             </div>
                         </div>
                         <div class="ui dropdown item {{ AppHelper::is_active_parent('categories') }}">
