@@ -25,15 +25,21 @@ class ContentController extends Controller
         return view('content.index', ['allContent' => $allContent, 'filters' => $filters]);
     }
 
-    public function create()
+
+    public function create($type = null)
     {
-        $content = new Content([
-            'seo_index' => 1
-        ]);
+		if (in_array($type, Content::types)) {
+			$content = new Content([
+				'type' => $type,
+	            'seo_index' => 1
+	        ]);
 
-        $options = $this->options();
+	        $options = $this->options();
 
-        return view('content.create', compact('content', 'options'));
+	        return view('content.create', compact('content', 'options'));
+		} else {
+			abort(404);
+		}
     }
 
     public function store(ContentRequest $request)
@@ -116,6 +122,7 @@ class ContentController extends Controller
     {
         return [
             'categories' => Category::tree(),
+			'types' => Content::types,
             'users' => User::all()->pluck('id', 'full_name'),
         ];
     }
