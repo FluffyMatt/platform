@@ -105,6 +105,7 @@
             <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
         @endif
         <script src="//cdn.ckeditor.com/4.5.9/full/ckeditor.js"></script>
+		<script src="/js/dependsOn.min.js"></script>
         <script src="/js/app.js"></script>
 
     </body>
