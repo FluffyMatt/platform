@@ -68,7 +68,7 @@
 			</div>
 
 			<div id="content-users" class="field">
-				<label for="users">Authors</label>
+				<label for="users">Authored by</label>
 				<select name="users[]" class="ui fluid search dropdown authors" multiple>
 					@foreach ($options['users'] as $full_name => $id)
 						<?php $selected = ''; ?>
