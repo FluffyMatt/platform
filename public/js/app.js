@@ -18,6 +18,18 @@ $(function() {
 		$(this).children('form').submit();
 	})
 
+	// Conditional fields
+	$('#content-categories').dependsOn({
+		'#content-type select': {
+			not: ['page']
+		}
+	});
+	$('#content-description').dependsOn({
+		'#content-type select': {
+			not: ['page']
+		}
+	});
+
 	// Semantic
 	$('.ui.calendar').calendar({
 		on: 'focus',
