@@ -9,7 +9,9 @@ class Content extends Model
 
 	use \Venturecraft\Revisionable\RevisionableTrait;
 
-    protected $table = 'content';
+	public $types = ['article', 'page', 'series', 'chapter'];
+
+	protected $table = 'content';
 
     protected $fillable = [
 		'type',
