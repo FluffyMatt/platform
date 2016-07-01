@@ -1,11 +1,11 @@
 @extends('cms.layouts.main')
 
-@section('title', 'Editing '.$type)
+@section('title', 'Editing '.$content->type)
 
-@section('header', 'Edit '.$type)
+@section('header', 'Edit '.$content->type)
 
 @section('buttons')
-	@include('shared._buttons')
+	@include('cms.shared._buttons')
 @endsection
 
 @section('content')
