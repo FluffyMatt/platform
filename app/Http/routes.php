@@ -15,6 +15,7 @@
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'ContentController@index');
     Route::resource('content', 'ContentController');
+	Route::get('/content/create/{type}', 'ContentController@create');
     Route::resource('categories', 'CategoryController');
     Route::resource('menus', 'MenuController');
     Route::resource('users', 'UserController');

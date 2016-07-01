@@ -1,8 +1,8 @@
-@extends('layouts.cms')
+@extends('cms.layouts.main')
 
-@section('title', 'Editing content')
+@section('title', 'Editing '.$type)
 
-@section('header', 'Edit content')
+@section('header', 'Edit '.$type)
 
 @section('buttons')
 	@include('shared._buttons')
@@ -14,9 +14,9 @@
 
 	{{ method_field('PATCH') }}
 
-	@include('content._form')
+	@include('cms.content._form')
 
-	@include('content._revisions')
+	@include('cms.content._revisions')
 
 </form>
 

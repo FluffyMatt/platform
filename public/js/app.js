@@ -1,6 +1,6 @@
 $(function() {
 
-	// CKEDITOR
+	// Ckeditor
 	if ($('[name="body"]').length > 0) {
 		CKEDITOR.replace('body', {
 			skin: 'flat,/js/flat/',
@@ -8,16 +8,30 @@ $(function() {
 		})
 	};
 
+	// Save button located outside form can trigger submit
 	$('#save').click(function() {
 		$('.ui.form').submit();
 	});
 
+	// Confirm delete
 	$('.item.delete-confirm').click(function() {
 		$(this).children('form').submit();
 	})
 
+	// Conditional fields
+	$('#content-categories').dependsOn({
+		'#content-type select': {
+			not: ['page']
+		}
+	});
+	$('#content-description').dependsOn({
+		'#content-type select': {
+			not: ['page']
+		}
+	});
+
 	// Semantic
-   $('.ui.calendar').calendar({
+	$('.ui.calendar').calendar({
 		on: 'focus',
 		ampm: false,
 		formatter: {
@@ -33,8 +47,8 @@ $(function() {
 	});
 
 	$('.message .close').on('click', function() {
-	    $(this).closest('.message').transition('fade');
-	  });
+		$(this).closest('.message').transition('fade');
+	});
 
 	$('.ui.dropdown').dropdown({on: 'hover'})
 	$('form .ui.dropdown').dropdown({on: 'focus'})

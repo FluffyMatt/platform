@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Content extends Model
 {
+	use \Venturecraft\Revisionable\RevisionableTrait;
 
-    use \Venturecraft\Revisionable\RevisionableTrait;
+	const types = ['article', 'page', 'series', 'chapter'];
 
-    protected $table = 'content';
+	protected $table = 'content';
 
     protected $fillable = [
+		'type',
 		'seo_index',
         'title',
         'seo_title',

@@ -12,12 +12,12 @@ class MenuController extends Controller
     {
         $menus = Menu::orderBy('title', 'asc')->get();
 
-        return view('menus.index', compact('menus'));
+        return view('cms.menus.index', compact('menus'));
     }
 
     public function create()
 	{
-        return view('menus.create');
+        return view('cms.menus.create');
     }
 
     public function store(Request $request)
@@ -36,7 +36,7 @@ class MenuController extends Controller
 	{
         $menu = Menu::findOrFail($id);
 
-        return view('menus.edit', compact('menu'));
+        return view('cms.menus.edit', compact('menu'));
     }
 
     public function update(Request $request, $id)

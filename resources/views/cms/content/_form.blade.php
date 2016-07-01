@@ -8,31 +8,36 @@
 
 			<div class="ui padded segment">
 
-				<div class="field">
+				<div id="content-title" class="field">
 					<label for="title">Title</label>
 					<input type="text" name="title" value="{{ old('title', @$content->title) }}">
 				</div>
 
-				<div class="field">
+				<div id="content-description" class="field">
 					<label for="description">Description</label>
 					<textarea name="description" rows="2">{{ old('description', @$content->description) }}</textarea>
 				</div>
 
-				<div class="field">
+				<div id="content-slug" class="field">
 					<label for="slug">URL</label>
-					<input type="text" name="slug" value="{{ old('slug', @$content->slug) }}">
+					<div class="ui labeled input">
+						<div class="ui label">
+							{{ ENV('APP_URL') }}/
+						</div>
+						<input type="text" name="slug" value="{{ old('slug', @$content->slug) }}">
+					</div>
 				</div>
 
-				<div class="field">
+				<div id="content-body" class="field">
 					<label for="body">Body</label>
-					<textarea type="textarea" name="body" >{{ old('body', @$content->body) }}</textarea>
+					<textarea name="body">{{ old('body', @$content->body) }}</textarea>
 				</div>
 
 			</div>
 
 		</div>
 
-		@include('content._fields_seo')
+		@include('cms.content._fields_seo')
 
 	</div>
 
@@ -42,23 +47,33 @@
 
 			<div class="ui padded segment">
 
-			<div class="field">
+			<div id="content-type" class="field hide">
+				<label for="type">Type</label>
+				<select class="ui fluid dropdown" name="type">
+					<option value=""></option>
+					@foreach ($options['types'] as $type)
+						<option value="{{ $type }}" @if(old('type', @$content->type) == $type) selected @endif>{{ ucfirst($type) }}</option>
+					@endforeach
+				</select>
+			</div>
+
+			<div id="content-status" class="field">
 				<label for="status">Status</label>
-				<select class="ui fluid dropdown" name="status" id="status">
+				<select class="ui fluid dropdown" name="status">
 					<option value="draft" @if(old('status', @$content->status) == 'draft') selected @endif >Draft</option>
 					<option value="published" @if(old('status', @$content->status) == 'published') selected @endif >Published</option>
 				</select>
 			</div>
 
-			<div class="field">
-				<label><i class="calendar icon"></i> Publish date</label>
+			<div id="content-published-at" class="field">
+				<label>Publish date</label>
 				<div class="ui calendar">
-					<input name="published_at" type="text" value="{{ old('published_at', @$content->published_at) }}" placeholder="">
+					<input accept=""name="published_at" type="text" value="{{ old('published_at', @$content->published_at) }}" placeholder="">
 				</div>
 			</div>
 
-			<div class="field">
-				<label for="users">Authors</label>
+			<div id="content-users" class="field">
+				<label for="users">Authored by</label>
 				<select name="users[]" class="ui fluid search dropdown authors" multiple>
 					@foreach ($options['users'] as $full_name => $id)
 						<?php $selected = ''; ?>
@@ -75,7 +90,7 @@
 				</select>
 			</div>
 
-			<div class="field">
+			<div id="content-categories" class="field">
 				<label for="categories">Categories</label>
 				<select name="categories[]" class="ui fluid search dropdown" multiple>
 					<option value=""></option>

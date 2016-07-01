@@ -50,10 +50,10 @@ class AuthController extends Controller
     public function getLogin(Request $request) {
 
       if (view()->exists('auth.authenticate')) {
-          return view('auth.authenticate');
+          return view('cms.auth.authenticate');
       }
 
-      return view('auth.login');
+      return view('cms.auth.login');
 
     }
 

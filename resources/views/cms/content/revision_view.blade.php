@@ -1,4 +1,4 @@
-@extends('layouts.cms')
+@extends('cms.layouts.main')
 
 @section('title', "Reviewing revision")
 

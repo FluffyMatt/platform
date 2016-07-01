@@ -18,6 +18,7 @@ class ContentRequest extends Request
 
         return [
             'title' => "required",
+            'type' => "required",
             'status' => "required",
 			'slug' => "required|unique:content,slug,$current_slug"
         ];

@@ -22,18 +22,24 @@ class ContentController extends Controller
 
         $allContent = Content::orderBy('created_at', 'desc')->paginate(15);
 
-        return view('content.index', ['allContent' => $allContent, 'filters' => $filters]);
+        return view('cms.content.index', ['allContent' => $allContent, 'filters' => $filters]);
     }
 
-    public function create()
+
+    public function create($type = null)
     {
-        $content = new Content([
-            'seo_index' => 1
-        ]);
+		if (in_array($type, Content::types)) {
+			$content = new Content([
+				'type' => $type,
+	            'seo_index' => 1
+	        ]);
 
-        $options = $this->options();
+	        $options = $this->options();
 
-        return view('content.create', compact('content', 'options'));
+	        return view('cms.content.create', compact('content', 'options', 'type'));
+		} else {
+			abort(404);
+		}
     }
 
     public function store(ContentRequest $request)
@@ -57,7 +63,7 @@ class ContentController extends Controller
 
         $revisions = $content->revisionHistory()->orderBy('created_at', 'desc')->get();
 
-        return view('content.edit', compact('content', 'options', 'revisions'));
+        return view('cms.content.edit', compact('content', 'options', 'revisions'));
     }
 
     public function update(ContentRequest $request, $id)
@@ -91,7 +97,7 @@ class ContentController extends Controller
     {
         $revision = \Venturecraft\Revisionable\Revision::find($id);
 
-        return view('content.revision_view', compact('id', 'revision'));
+        return view('cms.content.revision_view', compact('id', 'revision'));
     }
 
     public function rollback(Request $request, $id)
@@ -113,6 +119,7 @@ class ContentController extends Controller
     {
         return [
             'categories' => Category::tree(),
+			'types' => Content::types,
             'users' => User::all()->pluck('id', 'full_name'),
         ];
     }

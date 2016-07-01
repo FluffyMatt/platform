@@ -22,7 +22,10 @@
                             <i class="dropdown icon"></i>
                             <div class="menu">
                                 <a class="item {{ AppHelper::is_active('content') }}" href="/content"><i class="list icon"></i> All Content</a>
-                                <a class="item {{ AppHelper::is_active('content/create') }}" href="/content/create"><i class="add icon"></i> Add Content</a>
+                                <a class="item {{ AppHelper::is_active('content/create/article') }}" href="/content/create/article"><i class="add icon"></i> Add Article</a>
+                                <a class="item {{ AppHelper::is_active('content/create/page') }}" href="/content/create/page"><i class="add icon"></i> Add Page</a>
+                                <a class="item {{ AppHelper::is_active('content/create/series') }}" href="/content/create/series"><i class="add icon"></i> Add Series</a>
+                                <a class="item {{ AppHelper::is_active('content/create/chapter') }}" href="/content/create/chapter"><i class="add icon"></i> Add Chapter</a>
                             </div>
                         </div>
                         <div class="ui dropdown item {{ AppHelper::is_active_parent('categories') }}">
@@ -70,9 +73,9 @@
             <div class="ui contain">
         @endif
 
-        @include('shared._errors')
+        @include('cms.shared._errors')
 
-        @include('shared._alerts')
+        @include('cms.shared._alerts')
 
         @if (Auth::check())
 
@@ -105,6 +108,7 @@
             <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
         @endif
         <script src="//cdn.ckeditor.com/4.5.9/full/ckeditor.js"></script>
+		<script src="/js/dependsOn.min.js"></script>
         <script src="/js/app.js"></script>
 
     </body>
