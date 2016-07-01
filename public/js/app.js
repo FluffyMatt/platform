@@ -19,15 +19,17 @@ $(function() {
 	})
 
 	// Conditional fields
-	$('#content-categories').dependsOn({
-		'#content-type select': {
-			not: ['page']
-		}
-	});
-	$('#content-description').dependsOn({
-		'#content-type select': {
-			not: ['page']
-		}
+	$('#content-form').each(function() {
+		$('#content-categories').dependsOn({
+			'#content-type select': {
+				not: ['page']
+			}
+		});
+		$('#content-description').dependsOn({
+			'#content-type select': {
+				not: ['page']
+			}
+		});
 	});
 
 	// Semantic
