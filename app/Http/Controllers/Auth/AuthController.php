@@ -30,9 +30,9 @@ class AuthController extends Controller
     // Override use of email
     protected $username = 'username';
 
-    protected $loginPath = '/login';
+    protected $loginPath = '/cms/login';
 
-    protected $redirectPath = '/';
+    protected $redirectPath = '/cms';
 
     protected $ldap;
 
@@ -182,7 +182,7 @@ class AuthController extends Controller
 
       $request->session()->flash('success', 'You have been logged out');
 
-      return redirect('login');
+      return redirect($this->loginPath);
 
     }
 
