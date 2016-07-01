@@ -1,4 +1,4 @@
-@include('shared._errors')
+@include('cms.shared._errors')
 
 {{ csrf_field() }}
 
@@ -45,5 +45,5 @@
 				<label>Author</label>
 		  	</div>
 		</div>
-		
+
 	</div>

@@ -1,4 +1,4 @@
-@extends('layouts.cms')
+@extends('cms.layouts.main')
 
 @section('title', 'Category index')
 
@@ -23,7 +23,7 @@
 
 				<?php $level = 0; ?>
 
-				@include('categories._index_loop')
+				@include('cms.categories._index_loop')
 
 			@empty
 				<tr>

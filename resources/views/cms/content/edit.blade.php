@@ -1,4 +1,4 @@
-@extends('layouts.cms')
+@extends('cms.layouts.main')
 
 @section('title', 'Editing '.$type)
 
@@ -14,9 +14,9 @@
 
 	{{ method_field('PATCH') }}
 
-	@include('content._form')
+	@include('cms.content._form')
 
-	@include('content._revisions')
+	@include('cms.content._revisions')
 
 </form>
 

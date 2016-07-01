@@ -1,18 +1,18 @@
-@extends('layouts.cms')
+@extends('cms.layouts.main')
 
 @section('title', 'Adding new '.$type)
 
 @section('header', 'Add '.$type)
 
 @section('buttons')
-	@include('shared._buttons')
+	@include('cms.shared._buttons')
 @endsection
 
 @section('content')
 
 <form class="ui form" action="/content" method="post">
 
-	@include('content._form')
+	@include('cms.content._form')
 
 </form>
 

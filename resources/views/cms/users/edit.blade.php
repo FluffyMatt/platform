@@ -1,11 +1,11 @@
-@extends('layouts.cms')
+@extends('cms.layouts.main')
 
 @section('title', 'Edit User')
 
 @section('header', 'Edit User')
 
 @section('buttons')
-	@include('shared._buttons')
+	@include('cms.shared._buttons')
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
 
 		{{ method_field('PATCH') }}
 
-        @include('users._form')
+        @include('cms.users._form')
 
     </form>
 

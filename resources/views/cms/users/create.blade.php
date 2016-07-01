@@ -1,18 +1,18 @@
-@extends('layouts.cms')
+@extends('cms.layouts.main')
 
 @section('title', 'Create User')
 
 @section('header', 'Create User')
 
 @section('buttons')
-	@include('shared._buttons')
+	@include('cms.shared._buttons')
 @endsection
 
 @section('content')
 
     <form class="ui form" action="/users" method="POST">
 
-        @include('users._form')
+        @include('cms.users._form')
 
     </form>
 

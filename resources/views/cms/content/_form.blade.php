@@ -37,7 +37,7 @@
 
 		</div>
 
-		@include('content._fields_seo')
+		@include('cms.content._fields_seo')
 
 	</div>
 

@@ -73,9 +73,9 @@
             <div class="ui contain">
         @endif
 
-        @include('shared._errors')
+        @include('cms.shared._errors')
 
-        @include('shared._alerts')
+        @include('cms.shared._alerts')
 
         @if (Auth::check())
 
