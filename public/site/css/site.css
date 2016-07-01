@@ -1,0 +1,20 @@
+body > .grid {
+  height: 100%; }
+
+body > .contain {
+  margin: 35px 2rem 100px; }
+
+.ui.menu {
+  border-radius: 0; }
+
+.ui.inverted.menu .active-parent.item {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff !important; }
+
+h1.ui.header {
+  padding-top: 5px; }
+
+.hide {
+  display: none; }
+
+/*# sourceMappingURL=site.css.map */
