@@ -25,8 +25,8 @@ Route::group(['prefix' => 'cms'], function () {
 	        Route::get('users/search', 'UserController@search');
 	    });
 	});
-
-	Route::get('/login', 'Auth\AuthController@getLogin');
-	Route::post('/login', 'Auth\AuthController@login');
-	Route::get('/logout', 'Auth\AuthController@getLogout');
 });
+
+Route::get('/cms/login', 'Auth\AuthController@getLogin');
+Route::post('/cms/login', 'Auth\AuthController@login');
+Route::get('/cms/logout', 'Auth\AuthController@getLogout');

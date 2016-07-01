@@ -10,7 +10,7 @@
 
         <h2><div class="content">Login to your account</div></h2>
 
-        <form class="ui large form" id="login" method="post" action="/login">
+        <form class="ui large form" id="login" method="post" action="/cms/login">
 
             <div class="ui segment">
 
