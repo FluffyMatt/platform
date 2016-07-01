@@ -17,4 +17,12 @@ h1.ui.header {
 .hide {
   display: none; }
 
+pre {
+  white-space: pre-line;
+  margin: 0; }
+  pre span.added {
+    background-color: rgba(92, 184, 76, 0.3); }
+  pre span.removed {
+    background-color: rgba(217, 83, 79, 0.6); }
+
 /*# sourceMappingURL=cms.css.map */
