@@ -21,7 +21,7 @@
                             <a href="/content">Content</a>
                             <i class="dropdown icon"></i>
                             <div class="menu">
-                                <a class="item {{ AppHelper::is_active('content') }}" href="/content"><i class="list icon"></i> All Content</a>
+                                <a class="item {{ AppHelper::is_active('content') }}" href="{{ url('content') }}"><i class="list icon"></i> All Content</a>
                                 <a class="item {{ AppHelper::is_active('content/create/article') }}" href="/content/create/article"><i class="add icon"></i> Add Article</a>
                                 <a class="item {{ AppHelper::is_active('content/create/page') }}" href="/content/create/page"><i class="add icon"></i> Add Page</a>
                                 <a class="item {{ AppHelper::is_active('content/create/series') }}" href="/content/create/series"><i class="add icon"></i> Add Series</a>

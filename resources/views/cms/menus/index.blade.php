@@ -5,7 +5,7 @@
 @section('header', 'Menus')
 
 @section('buttons')
-	<a class="ui primary right floated button" href="/menus/create">Add New</a>
+	<a class="ui primary right floated button" href="/cms/menus/create">Add New</a>
 @endsection
 
 @section('content')

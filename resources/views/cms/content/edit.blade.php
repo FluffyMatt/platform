@@ -10,7 +10,7 @@
 
 @section('content')
 
-<form class="ui form" action="/content/{{ $content->id }}" method="POST">
+<form id="content-form" class="ui form" action="/content/{{ $content->id }}" method="POST">
 
 	{{ method_field('PATCH') }}
 

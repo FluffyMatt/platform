@@ -5,7 +5,7 @@
 @section('header', 'Users')
 
 @section('buttons')
-	<a class="ui primary right floated button" href="/users/create">Add New</a>
+	<a class="ui primary right floated button" href="/cms/users/create">Add New</a>
 @endsection
 
 @section('content')
