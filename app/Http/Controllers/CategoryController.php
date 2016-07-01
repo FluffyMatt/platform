@@ -12,14 +12,14 @@ class CategoryController extends Controller
     {
         $categories = Category::whereNull('parent_id')->orderBy('title', 'asc')->get();
 
-        return view('categories.index', compact('categories'));
+        return view('cms.categories.index', compact('categories'));
     }
 
     public function create()
 	{
 		$options = $this->options();
 
-        return view('categories.create', compact('options'));
+        return view('cms.categories.create', compact('options'));
     }
 
     public function store(Request $request)
@@ -41,7 +41,7 @@ class CategoryController extends Controller
 		$options = $this->options();
 		unset($options['categories'][$id]); # Remove self from category list to avoid self-referencing relationship
 
-        return view('categories.edit', compact('category', 'options'));
+        return view('cms.categories.edit', compact('category', 'options'));
     }
 
     public function update(Request $request, $id)
