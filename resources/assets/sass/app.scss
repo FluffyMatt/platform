@@ -12,3 +12,9 @@ body > .contain { margin: 35px 2rem 100px; }
 .ui.inverted.menu .active-parent.item { background: rgba(255,255,255,.15); color: #fff !important; }
 
 h1.ui.header { padding-top: 5px; }
+
+// Revisions
+pre { white-space: pre-line; margin: 0;
+	span.added { background-color: rgba(92, 184, 76, 0.3); }
+	span.removed { background-color: rgba(217, 83, 79, 0.6); }
+}

@@ -94,22 +94,19 @@ class ContentController extends Controller
         return view('content.revision_view', compact('id', 'revision'));
     }
 
-    public function rollback($id)
+    public function rollback(Request $request, $id)
     {
         $revision = \Venturecraft\Revisionable\Revision::find($id);
         $content = Content::findOrFail($revision->revisionable_id);
 
-        $data[$revision->fieldName] = [$revision->oldValue()];
+        $data[$revision->fieldName()] = $revision->oldValue();
 
         if ($content->update($data)) {
-            $content->users()->sync($content->users());
-            $content->categories()->sync($content->categories());
             $request->session()->flash('success', 'Revision has been restored');
             return redirect('content/'.$revision->revisionable_id.'/edit');
         } else {
             $request->session()->flash('error', 'Revision failed to restore');
         }
-
     }
 
     public function options()
