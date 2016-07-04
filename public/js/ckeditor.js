@@ -17,3 +17,17 @@ CKEDITOR.editorConfig = function( config ) {
     config.removeDialogTabs = 'link:advanced';
 };
 CKEDITOR.dtd.$removeEmpty['i'] = false;
+
+CKEDITOR.on( 'dialogDefinition', function( ev ) {
+	var dialogName = ev.data.name;
+	var dialogDefinition = ev.data.definition;
+	if ( dialogName == 'table' ) {
+		var info = dialogDefinition.getContents( 'info' );
+		info.get( 'txtWidth' )[ 'default' ] = '';
+		info.get( 'txtBorder' )[ 'default' ] = '';
+		info.get( 'txtCellSpace' )[ 'default' ] = '';
+		info.get( 'txtCellPad' )[ 'default' ] = '';
+		var addCssClass = dialogDefinition.getContents('advanced').get('advCSSClasses');
+	    addCssClass['default'] = 'ui celled table';
+	}
+});

@@ -50,7 +50,7 @@ class ContentSeeder extends Seeder
 
 <p>Tation nostro cum ne, pri malis maiorum definiebas ea, ea novum audire mel. Minim iriure probatus cu has. Diceret vivendo eleifend sea ut, ius ceteros dignissim ad, solet eloquentiam vis et. Putent quaerendum vim ex. Sed mucius appetere at. Autem graeco liberavisse eam ad.</p>
 
-<table border="1" cellpadding="1" cellspacing="1">
+<table class="ui celled table">
 	<thead>
 		<tr>
 			<th scope="col">Feature</th>
