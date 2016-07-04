@@ -6,6 +6,8 @@
 |--------------------------------------------------------------------------
 */
 
+Route::get('/', 'ContentController@home');
+
 Route::group(['prefix' => 'cms'], function () {
 	Route::group(['middleware' => 'auth'], function () {
 	    Route::get('/', 'ContentController@index');

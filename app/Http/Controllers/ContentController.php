@@ -14,6 +14,11 @@ use App\Http\Requests\ContentRequest;
 class ContentController extends Controller
 {
 
+	public function home()
+	{
+		return view ('site.home');
+	}
+
     public function index(FilterRequest $request)
     {
         $titles = Content::distinct('title')->pluck('title', 'title');
