@@ -61,10 +61,10 @@ class ContentController extends Controller
             $content->users()->sync($request->input('users', []));
             $content->categories()->sync($request->input('categories', []));
             $request->session()->flash('success', 'Content saved successfully');
-            return redirect('content/'.$content->id.'/edit');
+            return redirect('cms/content/'.$content->id.'/edit');
         } else {
             $request->session()->flash('error', 'Error saving content');
-            return redirect('content/create')->withInputs($request->all());
+            return redirect('cms/content/create')->withInputs($request->all());
         }
     }
 
@@ -87,7 +87,7 @@ class ContentController extends Controller
             $content->users()->sync($request->input('users', []));
             $content->categories()->sync($request->input('categories', []));
             $request->session()->flash('success', 'Content saved successfully');
-            return redirect('content/'.$id.'/edit');
+            return redirect('cms/content/'.$id.'/edit');
         } else {
             $request->session()->flash('error', 'Error saving content');
         }
@@ -100,7 +100,7 @@ class ContentController extends Controller
         if ($content->delete($id)) {
             $content->users()->detach();
             $request->session()->flash('success', 'Content deleted');
-            return redirect('content');
+            return redirect('cms/content');
         } else {
             $request->session()->flash('error', 'Error deleting content');
         }
@@ -122,7 +122,7 @@ class ContentController extends Controller
 
         if ($content->update($data)) {
             $request->session()->flash('success', 'Revision has been restored');
-            return redirect('content/'.$revision->revisionable_id.'/edit');
+            return redirect('cms/content/'.$revision->revisionable_id.'/edit');
         } else {
             $request->session()->flash('error', 'Revision failed to restore');
         }
