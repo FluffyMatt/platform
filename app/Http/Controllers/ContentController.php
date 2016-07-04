@@ -19,6 +19,14 @@ class ContentController extends Controller
 		return view ('site.home');
 	}
 
+	public function show($slug)
+	{
+		$content = Content::where('slug', $slug)->firstOrFail();
+		#dd($content->title);
+
+		return view('site.content.show', compact('content'));
+	}
+
     public function index(FilterRequest $request)
     {
         $titles = Content::distinct('title')->pluck('title', 'title');
