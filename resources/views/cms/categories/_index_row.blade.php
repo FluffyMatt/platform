@@ -7,12 +7,12 @@
 	</td>
 	<td>
 		<div class="ui teal small buttons">
-			<a class="ui button" href="/categories/{{ $category->id }}/edit">Edit</a>
+			<a class="ui button" href="/cms/categories/{{ $category->id }}/edit">Edit</a>
 			<div class="ui floating dropdown icon button">
 				<i class="dropdown icon"></i>
 				<div class="menu">
 					<div class="item">
-						<form action="/categories/{{ $category->id }}" method="POST">
+						<form action="/cms/categories/{{ $category->id }}" method="POST">
 							{{ csrf_field() }}
 							{{ method_field('DELETE') }}
 							<div class="item">

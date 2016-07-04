@@ -10,7 +10,7 @@
 
 @section('content')
 
-<form class="ui form" action="/categories/{{ $category->id }}" method="POST">
+<form class="ui form" action="/cms/categories/{{ $category->id }}" method="POST">
 
 	{{ method_field('PATCH') }}
 

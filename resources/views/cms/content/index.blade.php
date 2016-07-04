@@ -52,12 +52,12 @@
 					</td>
 					<td>
 						<div class="ui teal buttons">
-							<a class="ui button" href="/content/{{ $content->id }}/edit">Edit</a>
+							<a class="ui button" href="/cms/content/{{ $content->id }}/edit">Edit</a>
 							<div class="ui floating dropdown icon small button">
 								<i class="dropdown icon"></i>
 								<div class="menu">
 									<div class="item delete-confirm">
-										<form action="/content/{{ $content->id }}" method="POST">
+										<form action="/cms/content/{{ $content->id }}" method="POST">
 											{{ csrf_field() }}
 											{{ method_field('DELETE') }}
 											<i class="delete red icon"></i> Delete

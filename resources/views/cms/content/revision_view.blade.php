@@ -5,8 +5,8 @@
 @section('header', "Reviewing revision")
 
 @section('buttons')
-	<a href="/content/rollback/{{$id}}" class="ui primary right floated button">Restore</a>
-	<a href="/content/{{ $revision->revisionable_id }}/edit" class="ui right floated button">Back</a>
+	<a href="/cms/content/rollback/{{$id}}" class="ui primary right floated button">Restore</a>
+	<a href="/cms/content/{{ $revision->revisionable_id }}/edit" class="ui right floated button">Back</a>
 @endsection
 
 @section('content')

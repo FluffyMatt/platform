@@ -49,12 +49,12 @@
 					</td>
 					<td>
 						<div class="ui teal small buttons">
-							<a class="ui button" href="/users/{{ $user->id }}/edit">Edit</a>
+							<a class="ui button" href="/cms/users/{{ $user->id }}/edit">Edit</a>
 							<div class="ui floating dropdown icon button">
 								<i class="dropdown icon"></i>
 								<div class="menu">
 									<div class="item">
-										<form action="/users/{{ $user->id }}" method="POST">
+										<form action="/cms/users/{{ $user->id }}" method="POST">
 											{{ csrf_field() }}
 											{{ method_field('DELETE') }}
 						                    <button class="confirm-delete ui basic red button"><i class="delete icon"></i> Delete</button>

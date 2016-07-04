@@ -10,7 +10,7 @@
 
 @section('content')
 
-<form id="content-form" class="ui form" action="/content" method="post">
+<form id="content-form" class="ui form" action="/cms/content" method="post">
 
 	@include('cms.content._form')
 
