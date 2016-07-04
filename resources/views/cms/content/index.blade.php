@@ -51,6 +51,7 @@
 						{{ $content->published_at }}
 					</td>
 					<td>
+						<a class="ui button" href="/{{ $content->slug }}">View</a>
 						<div class="ui teal buttons">
 							<a class="ui button" href="/cms/content/{{ $content->id }}/edit">Edit</a>
 							<div class="ui floating dropdown icon small button">
