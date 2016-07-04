@@ -62,22 +62,22 @@ class ContentSeeder extends Seeder
 		<tr>
 			<td>Waterproof</td>
 			<td>&pound;4.99</td>
-			<td><a class="small button" href="#">Purchase</a></td>
+			<td><a class="ui small button" href="#">Purchase</a></td>
 		</tr>
 		<tr>
 			<td>Optical zoom</td>
 			<td>&pound;9.99</td>
-			<td><a class="small button" href="#">Purchase</a></td>
+			<td><a class="ui small button" href="#">Purchase</a></td>
 		</tr>
 		<tr>
 			<td>Magnetism</td>
 			<td>&pound;16.99</td>
-			<td><a class="small button" href="#">Purchase</a></td>
+			<td><a class="ui small button" href="#">Purchase</a></td>
 		</tr>
 		<tr>
 			<td>Scratch resistant</td>
 			<td>&pound;2.99</td>
-			<td><a class="small button" href="#">Purchase</a></td>
+			<td><a class="ui small button" href="#">Purchase</a></td>
 		</tr>
 	</tbody>
 </table>
