@@ -25,6 +25,11 @@ class Content extends Model
         'slug'
     ];
 
+	public function getRouteKeyName()
+	{
+	    return 'slug';
+	}
+
     public function users() {
         return $this->belongsToMany('App\User', 'content_users', 'content_id', 'user_id');
     }
