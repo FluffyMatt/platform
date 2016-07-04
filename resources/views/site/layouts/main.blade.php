@@ -11,14 +11,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-            <header>
-                <nav>
-                    <div class="ui menu inverted">
-                        <a class="header item" href="/">Site</a>
-                    </div>
-                </nav>
-            </header>
-        @endif
+
+        <header>
+            <nav>
+                <div class="ui menu inverted">
+                    <a class="header item" href="/">Site</a>
+                </div>
+            </nav>
+        </header>
 
         <div class="ui contain">
 
