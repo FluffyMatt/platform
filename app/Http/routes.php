@@ -14,6 +14,7 @@ Route::group(['prefix' => 'cms'], function () {
 	    Route::get('/', 'ContentController@index');
 	    Route::resource('content', 'ContentController', ['except' => ['create', 'show']]);
 		Route::get('/content/create/{type}', 'ContentController@create');
+		Route::resource('comments', 'CommentController', ['except' => ['create', 'show']]);
 	    Route::resource('categories', 'CategoryController');
 	    Route::resource('menus', 'MenuController');
 	    Route::resource('users', 'UserController');
