@@ -4,15 +4,17 @@
     border-radius: $radius;
 }
 
-// Custom CSS
+// Layout
 body > .grid { height: 100%; }
 body > .contain { margin: 35px 2rem 100px; }
-.ui.menu { @include border-radius(0); }
 
+// Menu
 .ui.inverted.menu .active-parent.item { background: rgba(255,255,255,.15); color: #fff !important; }
+.ui.menu { @include border-radius(0); }
 
 h1.ui.header { padding-top: 5px; }
 
+// Helpers
 .hide { display: none; }
 
 // Revisions
