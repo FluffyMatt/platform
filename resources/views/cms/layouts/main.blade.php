@@ -28,6 +28,9 @@
                                 <a class="item {{ AppHelper::is_active('cms/content/create/chapter') }}" href="/cms/content/create/chapter"><i class="add icon"></i> Add Chapter</a>
                             </div>
                         </div>
+                        <div class="ui dropdown item {{ AppHelper::is_active_parent('cms/comments') }}">
+                            <a href="/cms/comments">Comments</a>
+                        </div>
                         <div class="ui dropdown item {{ AppHelper::is_active_parent('cms/categories') }}">
                             <a href="/cms/categories">Categories</a>
                             <i class="dropdown icon"></i>
