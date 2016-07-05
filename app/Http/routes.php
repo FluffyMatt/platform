@@ -12,7 +12,7 @@ Route::get('/{slug}', 'ContentController@show');
 Route::group(['prefix' => 'cms'], function () {
 	Route::group(['middleware' => 'auth'], function () {
 	    Route::get('/', 'ContentController@index');
-	    Route::resource('content', 'ContentController', ['except' => ['show']]);
+	    Route::resource('content', 'ContentController', ['except' => ['create', 'show']]);
 		Route::get('/content/create/{type}', 'ContentController@create');
 	    Route::resource('categories', 'CategoryController');
 	    Route::resource('menus', 'MenuController');
