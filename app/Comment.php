@@ -8,19 +8,19 @@ class Comment extends Model
 {
 	const status = ['pending', 'approved', 'rejected', 'spam', 'private'];
 
-    protected $fillable = [
+	protected $fillable = [
 		'content_id',
-        'message',
-        'status'
-    ];
+		'message',
+		'status'
+	];
 
-    public function content()
-    {
-      return $this->belongsTo('App\Content');
-    }
+	public function content()
+	{
+		return $this->belongsTo('App\Content');
+	}
 
-    public function user()
-    {
-      return $this->belongsTo('App\User');
-    }
+	public function user()
+	{
+		return $this->belongsTo('App\User');
+	}
 }
