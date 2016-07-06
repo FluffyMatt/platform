@@ -10,6 +10,8 @@
 
 		<div class="eleven wide column">
 			{!! $content->body !!}
+
+			@include('site.content._comments')
 		</div>
 
 		<div class="five wide column">
