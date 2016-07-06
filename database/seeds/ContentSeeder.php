@@ -86,7 +86,7 @@ class ContentSeeder extends Seeder
 
 <p>Ne sea dolor prodesset. Ei quo pertinax necessitatibus. Debitis democritum reformidans eu qui. In perpetua dignissim adversarium has, est et amet aliquam, ex affert pertinax dissentiet eum.</p>
 ',
-				'published_at' => '2016-07-04 11:41:23',
+				'published_at' => '2016-07-04 11:41',
 				'created_at' => '2016-07-04 11:41:23'
             ],
         ]);
