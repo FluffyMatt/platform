@@ -20,7 +20,7 @@
             </nav>
         </header>
 
-        <div class="ui contain">
+        <div class="ui container">
 
             <h1 class="ui header">
                 @yield('header')
