@@ -14,7 +14,7 @@ class ContentSeeder extends Seeder
         DB::table('content')->insert([
             [
                 'id' => 1,
-				'type' => 'page',
+				'type' => 'article',
                 'slug' =>  'sample',
 				'status' => 'published',
 				'seo_index' => false,
