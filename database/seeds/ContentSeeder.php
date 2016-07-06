@@ -90,5 +90,16 @@ class ContentSeeder extends Seeder
 				'created_at' => '2016-07-04 11:41:23'
             ],
         ]);
+
+		DB::table('content_users')->insert([
+			[
+				'content_id' => 1,
+				'user_id' => 1
+			],
+			[
+				'content_id' => 1,
+				'user_id' => 2
+			],
+		]);
     }
 }
