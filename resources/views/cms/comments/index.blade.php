@@ -11,7 +11,6 @@
 			<tr>
 				<th>User</th>
 				<th>Content</th>
-				<th>Type</th>
 				<th>Status</th>
 				<th>Created</th>
 				<th>Action</th>
@@ -24,10 +23,7 @@
 						{{ $comment->user->first_name }} {{ $comment->user->last_name }}
 					</td>
 					<td>
-						{{ $comment->content->title }}
-					</td>
-					<td>
-						{{ $comment->public }}
+						<a href="/cms/content/{{ $comment->content->id }}/edit">{{ $comment->content->title }}</a>
 					</td>
 					<td>
 						{{ $comment->status }}
