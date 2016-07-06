@@ -27,6 +27,8 @@ class CommentRequest extends Request
 
 		if (!Auth::user()->admin && !Auth::user()->editor && !Auth::user()->author) {
 			unset($data['status']);
+		} else {
+			$data['status'] = 'approved';
 		}
 
 		return $data;
