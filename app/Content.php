@@ -30,12 +30,18 @@ class Content extends Model
 	    return 'slug';
 	}
 
-    public function users() {
+    public function users()
+	{
         return $this->belongsToMany('App\User', 'content_users', 'content_id', 'user_id');
     }
 
-    public function categories() {
+    public function categories()
+	{
         return $this->belongsToMany('App\Category', 'content_categories', 'content_id', 'category_id');
     }
 
+    public function comments()
+	{
+        return $this->hasMany('App\Comment');
+    }
 }
