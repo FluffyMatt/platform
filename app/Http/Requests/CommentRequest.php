@@ -25,7 +25,7 @@ class CommentRequest extends Request
 	{
 		$data = parent::all();
 
-		if (!Auth::user()->admin && !Auth::user()->editor) {
+		if (!Auth::user()->admin && !Auth::user()->editor && !Auth::user()->author) {
 			unset($data['status']);
 		}
 
