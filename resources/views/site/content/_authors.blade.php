@@ -2,11 +2,7 @@
 
 @if ($content->type == 'article' and $author_count > 0)
 	<p>
-		@if ($author_count > 0)
-			Authors:
-		@else
-			Author:
-		@endif
+		{{ str_plural('Author', $author_count) }}
 	</p>
 	@foreach ($content->users as $user)
 		{{ $user->full_name }}<br>
