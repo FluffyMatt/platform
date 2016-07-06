@@ -13,7 +13,6 @@ use App\Http\Requests\ContentRequest;
 
 class ContentController extends Controller
 {
-
 	public function home()
 	{
 		return view ('site.home');
