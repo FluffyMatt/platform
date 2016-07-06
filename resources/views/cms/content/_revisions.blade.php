@@ -7,7 +7,10 @@
 			<div class="ui accordion padded segment">
 
 				<div class="title">
-					<h3 class="ui centered header"><i class="history icon"></i>{{ count($revisions) }} Revisions</h3>
+					<h3 class="ui centered header">
+						<i class="history icon"></i>
+						{{ count($revisions) }} {{ str_plural('Revision', count($revisions)) }}
+					</h3>
 				</div>
 
 				<div class="content">
