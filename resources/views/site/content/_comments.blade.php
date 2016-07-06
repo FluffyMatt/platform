@@ -3,26 +3,29 @@
 	<?php $count = count($content->comments); ?>
 	@if ($count > 0)
 
-		<div id="comments" class="ui segments">
+		<div class="divider"></div>
 
-			<div class="ui padded secondary segment">
+		<div id="comments">
 
-				<h2>
-					<i class="comments outline icon"></i>
-					{{ $count }} {{ str_plural('Comment', $count) }}
-				</h2>
-
-			</div>
+			<h2>
+				<i class="comments outline icon"></i>
+				{{ $count }} {{ str_plural('Comment', $count) }}
+			</h2>
 
 			@foreach ($content->comments as $comment)
-				<div class="ui padded segment">
-					<p>
+				<div class="ui fluid card">
+					<div class="content">
 						{!! nl2br($comment->message) !!}
-					</p>
-					<p>
-						<b><a href="/cms/users/{{ $comment->user_id }}">{{ $comment->user->full_name }}</a></b><br>
-						<small>{{ $comment->created_at->format('j M Y - h:m') }}</small>
-					</p>
+					</div>
+					<div class="extra content">
+						<div class="left floated author">
+							<img class="ui avatar image" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=50&h=50">
+							<a href="/cms/users/{{ $comment->user_id }}">{{ $comment->user->full_name }}</a>
+						</div>
+						<div class="right floated time">
+							<small>{{ $comment->created_at->format('j F Y h:m') }}</small>
+						</div>
+					</div>
 				</div>
 			@endforeach
 
