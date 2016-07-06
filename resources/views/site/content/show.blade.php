@@ -6,6 +6,16 @@
 
 @section('content')
 
-	{!! $content->body !!}
+	<div class="ui grid">
+
+		<div class="eleven wide column">
+			{!! $content->body !!}
+		</div>
+
+		<div class="five wide column">
+			@include('site.content._authors')
+		</div>
+
+	</div>
 
 @endsection
