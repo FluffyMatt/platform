@@ -9,6 +9,7 @@ class Comment extends Model
 	const status = ['pending', 'approved', 'rejected', 'spam', 'private'];
 
 	protected $fillable = [
+		'user_id',
 		'content_id',
 		'message',
 		'status'
