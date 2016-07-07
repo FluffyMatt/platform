@@ -3,27 +3,31 @@
 	<?php $count = count($content->comments); ?>
 	@if ($count > 0)
 
-		<div class="divider"></div>
+		<div class="ui section divider"></div>
 
-		<div id="comments">
+		<div id="comments" class="ui comments">
 
-			<h2>
+			<h3 class="ui header">
 				<i class="comments outline icon"></i>
 				{{ $count }} {{ str_plural('Comment', $count) }}
-			</h2>
+			</h3>
+
+			@include('site.content._comment_form')
+
+			<div class="ui section divider"></div>
 
 			@foreach ($content->comments as $comment)
-				<div class="ui fluid card">
+				<div class="comment">
+					<a class="avatar">
+						<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=50&h=50">
+					</a>
 					<div class="content">
-						{!! nl2br($comment->message) !!}
-					</div>
-					<div class="extra content">
-						<div class="left floated author">
-							<img class="ui avatar image" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=50&h=50">
-							<a href="/cms/users/{{ $comment->user_id }}">{{ $comment->user->full_name }}</a>
+						<a class="author">{{ $comment->user->full_name }}</a>
+						<div class="metadata">
+							<span class="date">{{ $comment->created_at->format('j F Y \a\t g:ma') }}</span>
 						</div>
-						<div class="right floated time">
-							<small>{{ $comment->created_at->format('j F Y h:m') }}</small>
+						<div class="text">
+							{!! nl2br($comment->message) !!}
 						</div>
 					</div>
 				</div>
