@@ -12,7 +12,11 @@
 				{{ $count }} {{ str_plural('Comment', $count) }}
 			</h3>
 
-			@include('site.content._comment_form')
+			@if (Auth::user())
+				@include('site.content._comment_form')
+			@else
+				<p>Please login to comment</p>
+			@endif
 
 			<div class="ui section divider"></div>
 
