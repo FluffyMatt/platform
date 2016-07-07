@@ -29,6 +29,8 @@
 				<th>Status</th>
 				<th>Created</th>
 				<th>Published</th>
+				<th>Comments</th>
+				<th>Notes</th>
 				<th>Action</th>
 			</tr>
 		</thead>
@@ -49,6 +51,12 @@
 					</td>
 					<td>
 						{{ $content->published_at }}
+					</td>
+					<td>
+						{{ $content->comments()->count() }}
+					</td>
+					<td>
+						{{ $content->notes()->count() }}
 					</td>
 					<td>
 						<a class="ui button" href="/{{ $content->slug }}">View</a>
