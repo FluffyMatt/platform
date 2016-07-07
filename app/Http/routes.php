@@ -6,9 +6,6 @@
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', 'ContentController@home');
-Route::get('/{slug}', 'ContentController@show');
-
 Route::group(['prefix' => 'cms'], function () {
 	Route::group(['middleware' => 'auth'], function () {
 	    Route::get('/', 'ContentController@index');
@@ -34,3 +31,6 @@ Route::group(['prefix' => 'cms'], function () {
 	Route::post('/login', 'Auth\AuthController@login');
 	Route::get('/logout', 'Auth\AuthController@getLogout');
 });
+
+Route::get('/', 'ContentController@home');
+Route::get('/{slug}', 'ContentController@show');
