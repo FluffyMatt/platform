@@ -2,6 +2,8 @@
 
 	{{ csrf_field() }}
 
+	<input type="hidden" name="content_id" value="{{ $content->id }}">
+
 	<div id="comment-message" class="field">
 		<textarea name="message" class="inactive"></textarea>
 	</div>
