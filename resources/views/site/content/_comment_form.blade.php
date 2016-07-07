@@ -1,5 +1,7 @@
 <form id="comment-form" class="ui reply form" action="/comments" method="post">
 
+	{{ csrf_field() }}
+
 	<div id="comment-message" class="field">
 		<textarea name="message" class="inactive"></textarea>
 	</div>
