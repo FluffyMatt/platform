@@ -22,6 +22,8 @@
 
         <div class="ui container">
 
+			@include('site._message')
+
             <h1 class="ui header">
                 @yield('header')
             </h1>
