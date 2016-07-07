@@ -21,7 +21,6 @@ class ContentController extends Controller
 	public function show($slug)
 	{
 		$content = Content::where('slug', $slug)->firstOrFail();
-		#dd($content->title);
 
 		return view('site.content.show', compact('content'));
 	}
