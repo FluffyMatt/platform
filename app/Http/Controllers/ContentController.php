@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Content;
+use App\Comment;
 use App\Category;
 use App\User;
 use App\Http\Requests;
@@ -58,6 +59,10 @@ class ContentController extends Controller
         if ($content = Content::create($request->all())) {
             $content->users()->sync($request->input('users', []));
             $content->categories()->sync($request->input('categories', []));
+			if (!empty($request->input('comment.message'))) {
+				$note = new Comment($request->input('comment'));
+				$content->notes()->save($note);
+			}
             $request->session()->flash('success', 'Content saved successfully');
             return redirect('cms/content/'.$content->id.'/edit');
         } else {
@@ -84,6 +89,10 @@ class ContentController extends Controller
         if ($content->update($request->all())) {
             $content->users()->sync($request->input('users', []));
             $content->categories()->sync($request->input('categories', []));
+			if (!empty($request->input('comment.message'))) {
+				$note = new Comment($request->input('comment'));
+				$content->notes()->save($note);
+			}
             $request->session()->flash('success', 'Content saved successfully');
             return redirect('cms/content/'.$id.'/edit');
         } else {

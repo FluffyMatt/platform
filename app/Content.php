@@ -22,7 +22,11 @@ class Content extends Model
         'body',
         'status',
         'published_at',
-        'slug'
+        'slug',
+		'comment.content_id',
+		'comment.user_id',
+		'comment.status',
+		'comment.message'
     ];
 
 	public function getRouteKeyName()
