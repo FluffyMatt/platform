@@ -37,8 +37,6 @@
 
 		</div>
 
-		@include('cms.content._fields_seo')
-
 	</div>
 
 	<div class="five wide column">

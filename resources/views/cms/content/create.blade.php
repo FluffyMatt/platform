@@ -14,6 +14,10 @@
 
 	@include('cms.content._form')
 
+	@include('cms.content._fields_seo')
+
+	@include('cms.comments._list_notes')
+
 </form>
 
 @endsection
