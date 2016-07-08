@@ -22,3 +22,6 @@ pre { white-space: pre-line; margin: 0;
 	span.added { background-color: rgba(92, 184, 76, 0.3); }
 	span.removed { background-color: rgba(217, 83, 79, 0.6); }
 }
+
+// Notes
+#content-note textarea { height: 70px; min-height: auto; max-height: auto; }

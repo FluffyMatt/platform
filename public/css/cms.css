@@ -25,4 +25,9 @@ pre {
   pre span.removed {
     background-color: rgba(217, 83, 79, 0.6); }
 
+#content-note textarea {
+  height: 70px;
+  min-height: auto;
+  max-height: auto; }
+
 /*# sourceMappingURL=cms.css.map */
