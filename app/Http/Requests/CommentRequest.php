@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Request;
+use App\Content;
 
 class CommentRequest extends Request
 {
@@ -14,8 +15,6 @@ class CommentRequest extends Request
 
     public function rules()
     {
-		$current_slug = \Route::input('content');
-
         return [
             'message' => "required"
         ];
@@ -24,6 +23,12 @@ class CommentRequest extends Request
 	public function all()
 	{
 		$data = parent::all();
+
+		if (Request::server('HTTP_REFERER')) {
+			$slug = explode('/', Request::server('HTTP_REFERER'))[3];
+			$content = Content::where('slug', $slug)->firstOrFail();
+			$data['content_id'] = $content->id;
+		}
 
 		if (!Auth::user()->admin && !Auth::user()->editor && !Auth::user()->author) {
 			unset($data['status']);
