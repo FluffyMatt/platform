@@ -14,11 +14,15 @@
 				</div>
 
 				<div class="content">
+
+					@include('cms.comments._form_notes')
+
 					@foreach($content->notes as $comment)
 						<div class="ui vertical segment">
 							@include('cms.comments._show')
 						</div>
 					@endforeach
+
 				</div>
 
 			</div>
