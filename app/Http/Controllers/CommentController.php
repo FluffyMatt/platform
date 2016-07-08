@@ -37,7 +37,7 @@ class CommentController extends Controller
         if ($comment->save()) {
             $request->session()->flash('success', 'Comment saved successfully');
 			if ($comment->status=='private') {
-	            return redirect('cms/comments/'.$id.'/edit');
+	            return redirect('cms/content/'.$content->id.'/edit');
 			} else {
 				return redirect('/'.$comment->content->slug);
 			}
