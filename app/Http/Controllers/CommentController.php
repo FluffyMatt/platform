@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Comment;
 use App\Http\Requests;
 use App\Http\Requests\CommentRequest;
@@ -27,11 +28,13 @@ class CommentController extends Controller
 
     public function store(CommentRequest $request)
     {
-        $comment = new Comment([
-			'user_id' => Auth::user()->id
-		]);
+        $comment = new Comment($request->all());
+		$comment->user_id = Auth::user()->id;
+		if (!$comment->status) {
+			$comment->status = 'approved';
+		}
 
-        if ($comment = $comment->create($request->all())) {
+        if ($comment->save()) {
             $request->session()->flash('success', 'Comment saved successfully');
 			if ($comment->status=='private') {
 	            return redirect('cms/comments/'.$id.'/edit');
