@@ -13,10 +13,22 @@ body > .contain { margin: 35px 2rem 100px; }
 
 h1.ui.header { padding-top: 5px; }
 
-.hide { display: none; }
+.hide { display: none!important; }
 
 // Revisions
 pre { white-space: pre-line; margin: 0;
 	span.added { background-color: rgba(92, 184, 76, 0.3); }
 	span.removed { background-color: rgba(217, 83, 79, 0.6); }
 }
+
+// File uploads
+span.ui.small.header { line-height: 30px; }
+.ui.segment.secondary { height: 300px; width: 100%; color: transparent; }
+input[type='file'] { opacity: 0; }
+#uploads{
+	.tiny.centered.image { text-align: center; background: none; margin: 5px auto;}
+	.card { width: 100px; }
+}
+.ui.form.edit .ui.image { text-align: center; }
+.ui.form.edit .ui.image i { margin: 10px 0; }
+.extra.content a label { cursor: pointer; }
