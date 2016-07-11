@@ -160,6 +160,7 @@ return [
          * Third party providers
          */
         Geeksquad\Ldap\LdapServiceProvider::class,
+		Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -216,6 +217,7 @@ return [
          * Third party aliases
          */
         'Ldap' => Geeksquad\Ldap\Ldap::class,
+		'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 
