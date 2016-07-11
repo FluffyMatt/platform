@@ -16,7 +16,6 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('content_id');
-            $table->boolean('public');
             $table->text('message');
             $table->integer('parent_id');
             $table->string('ip');

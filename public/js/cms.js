@@ -18,6 +18,35 @@ $(function() {
 		$(this).children('form').submit();
 	})
 
+	// Slug generation
+	$('#content-slug').each(function() {
+		var $generateSlug = true;
+		if ($('#content-slug input').val().length > 0) {
+			$generateSlug = false; // Don't generate if a slug is already set, e.g. editing exiting content title
+		};
+		$('#content-title input').on('keyup', function() {
+			if ($('#content-slug input').val().length === 0) {
+				$generateSlug = true; // If someone clears the existing slug, assume they want title edits to generate a slug
+			}
+			if ($generateSlug) {
+				$(this).generateSlug(); // Generate slug from title
+			}
+		});
+		$('#refresh-slug').click(function() {
+			$('#content-title input').generateSlug();
+			return false;
+		});
+		$.fn.generateSlug = function() {
+			var slug = $(this).val();
+			console.log('a')
+			slug = slug.toLowerCase(); // Convert uppercase characters to lowercase
+			slug = slug.replace(/[\W_]+/g, " "); // Replace non-alphanumeric and underscores with spaces
+			slug = slug.trim(); // Replace whitespace at start and end
+			slug = slug.replace(/\s+/g, "-"); // Replace spaces with hyphens
+			$('#content-slug input').val(slug);
+		}
+	});
+
 	// Conditional fields
 	$('#content-form').each(function() {
 		$('#content-categories').dependsOn({
@@ -58,6 +87,8 @@ $(function() {
 	$('.ui.checkbox').checkbox();
 
 	$('.ui.accordion').accordion();
+
+	$('.tip').popup();
 
 	// Js Diff
 	$("#old-diff").each(function(){

@@ -6,7 +6,6 @@ use App\Http\Requests\Request;
 
 class ContentRequest extends Request
 {
-
     public function authorize()
     {
         return true;
@@ -27,6 +26,8 @@ class ContentRequest extends Request
 	public function all()
 	{
 		$data = parent::all();
+
+		$data["commentable"] = @$data["commentable"] ?: 0;
 
 		if (empty($data['published_at'])) {
 			unset($data['published_at']);

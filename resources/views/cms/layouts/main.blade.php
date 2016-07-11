@@ -28,6 +28,9 @@
                                 <a class="item {{ AppHelper::is_active('cms/content/create/chapter') }}" href="/cms/content/create/chapter"><i class="add icon"></i> Add Chapter</a>
                             </div>
                         </div>
+                        <div class="ui dropdown item {{ AppHelper::is_active_parent('cms/comments') }}">
+                            <a href="/cms/comments">Comments</a>
+                        </div>
                         <div class="ui dropdown item {{ AppHelper::is_active_parent('cms/categories') }}">
                             <a href="/cms/categories">Categories</a>
                             <i class="dropdown icon"></i>
@@ -60,18 +63,20 @@
                                 <a class="item {{ AppHelper::is_active('cms/users/create') }}" href="/cms/users/create"><i class="add icon"></i> Add User</a>
                             </div>
                         </div>
-                        <div class="ui dropdown item {{ AppHelper::is_active_parent('cms/users/'.Auth::user()->id) }} right">
-                            @if (Auth::check())
-                                <i class="user icon"></i>
-                                <a href="/cms/users/{{ Auth::user()->id }}/edit">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</a>
-                                <div class="menu">
-                                  <a class="item {{ AppHelper::is_active('cms/users/'.Auth::user()->id.'/edit') }}" href="/cms/users/{{ Auth::user()->id }}/edit"><i class="settings icon"></i> User profile</a>
-                                  <a class="item" href="/cms/logout"><i class="sign out icon"></i> Logout</a>
-                                </div>
-                            @else
+						<div class="right menu">
+							<a class="item" href="/"><i class="world icon"></i> View Site</a>
+	                        <div class="ui dropdown item {{ AppHelper::is_active_parent('cms/users/'.Auth::user()->id) }} right">
+	                            @if (Auth::check())
+	                                <i class="user icon"></i>
+	                                <a href="/cms/users/{{ Auth::user()->id }}/edit">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</a>
+	                                <div class="menu">
+	                                  <a class="item {{ AppHelper::is_active('cms/users/'.Auth::user()->id.'/edit') }}" href="/cms/users/{{ Auth::user()->id }}/edit"><i class="settings icon"></i> User profile</a>
+	                                  <a class="item" href="/cms/logout"><i class="sign out icon"></i> Logout</a>
+	                                </div>
+	                            @else
 
-                            @endif
-                        </div>
+	                            @endif
+	                        </div>
                     </div>
                 </nav>
             </header>

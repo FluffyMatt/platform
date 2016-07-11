@@ -1,20 +1,32 @@
 body > .grid {
   height: 100%; }
 
-body > .contain {
-  margin: 35px 2rem 100px; }
+body > .container {
+  margin-top: 35px; }
 
 .ui.menu {
   border-radius: 0; }
 
-.ui.inverted.menu .active-parent.item {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff !important; }
-
-h1.ui.header {
-  padding-top: 5px; }
-
 .hide {
   display: none; }
+
+blockquote {
+  border-left: 6px solid #eee;
+  padding: 0 0 0 12px; }
+
+blockquote p {
+  font-style: italic; }
+
+#comments {
+  margin-top: 30px; }
+
+#comment-message textarea {
+  height: 120px;
+  min-height: auto;
+  max-height: auto;
+  transition: height 0.4s; }
+
+#comment-message textarea.inactive {
+  height: 60px; }
 
 /*# sourceMappingURL=site.css.map */

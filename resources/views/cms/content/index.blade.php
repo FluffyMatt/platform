@@ -20,7 +20,6 @@
 
 @section('content')
 
-
 	<table class="ui celled table">
 		<thead>
 			<tr>
@@ -29,6 +28,8 @@
 				<th>Status</th>
 				<th>Created</th>
 				<th>Published</th>
+				<th>Comments</th>
+				<th>Notes</th>
 				<th>Action</th>
 			</tr>
 		</thead>
@@ -51,6 +52,17 @@
 						{{ $content->published_at }}
 					</td>
 					<td>
+						@if ($content->commentable)
+							{{ $content->comments()->count() }}
+						@else
+							-
+						@endif
+					</td>
+					<td>
+						{{ $content->notes()->count() }}
+					</td>
+					<td>
+						<a class="ui button" href="/{{ $content->slug }}">View</a>
 						<div class="ui teal buttons">
 							<a class="ui button" href="/cms/content/{{ $content->id }}/edit">Edit</a>
 							<div class="ui floating dropdown icon small button">

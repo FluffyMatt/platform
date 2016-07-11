@@ -5,7 +5,7 @@ CKEDITOR.editorConfig = function( config ) {
     // Remove some buttons provided by the standard plugins, which are
     // not needed in the Standard(s) toolbar.
     config.removeButtons = 'Underline,Subscript,Superscript';
-    config.contentsCss = '/css/app.css';
+    config.contentsCss = ['/css/semantic.min.css', '/css/site.css'];
     // Set the most common block elements.
     config.format_tags = 'p;h2;h3;h4;div';
     config.height = 300;
@@ -17,3 +17,17 @@ CKEDITOR.editorConfig = function( config ) {
     config.removeDialogTabs = 'link:advanced';
 };
 CKEDITOR.dtd.$removeEmpty['i'] = false;
+
+CKEDITOR.on( 'dialogDefinition', function( ev ) {
+	var dialogName = ev.data.name;
+	var dialogDefinition = ev.data.definition;
+	if ( dialogName == 'table' ) {
+		var info = dialogDefinition.getContents( 'info' );
+		info.get( 'txtWidth' )[ 'default' ] = '';
+		info.get( 'txtBorder' )[ 'default' ] = '';
+		info.get( 'txtCellSpace' )[ 'default' ] = '';
+		info.get( 'txtCellPad' )[ 'default' ] = '';
+		var addCssClass = dialogDefinition.getContents('advanced').get('advCSSClasses');
+	    addCssClass['default'] = 'ui celled table';
+	}
+});

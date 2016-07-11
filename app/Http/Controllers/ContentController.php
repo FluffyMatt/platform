@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Content;
+use App\Comment;
 use App\Category;
 use App\User;
 use App\Http\Requests;
@@ -13,6 +14,17 @@ use App\Http\Requests\ContentRequest;
 
 class ContentController extends Controller
 {
+	public function home()
+	{
+		return view ('site.home');
+	}
+
+	public function show($slug)
+	{
+		$content = Content::where('slug', $slug)->firstOrFail();
+
+		return view('site.content.show', compact('content'));
+	}
 
     public function index(FilterRequest $request)
     {
@@ -29,10 +41,15 @@ class ContentController extends Controller
     public function create($type = null)
     {
 		if (in_array($type, Content::types)) {
-			$content = new Content([
-				'type' => $type,
-	            'seo_index' => 1
-	        ]);
+			$content = new Content();
+			$content->type = $type;
+			$content->seo_index = 1;
+
+			if ($type == 'page') {
+				$content->commentable = false;
+			} else {
+				$content->commentable = true;
+			}
 
 	        $options = $this->options();
 
@@ -47,11 +64,15 @@ class ContentController extends Controller
         if ($content = Content::create($request->all())) {
             $content->users()->sync($request->input('users', []));
             $content->categories()->sync($request->input('categories', []));
+			if (!empty($request->input('comment.message'))) {
+				$note = new Comment($request->input('comment'));
+				$content->notes()->save($note);
+			}
             $request->session()->flash('success', 'Content saved successfully');
-            return redirect('content/'.$content->id.'/edit');
+            return redirect('cms/content/'.$content->id.'/edit');
         } else {
             $request->session()->flash('error', 'Error saving content');
-            return redirect('content/create')->withInputs($request->all());
+            return redirect('cms/content/create')->withInputs($request->all());
         }
     }
 
@@ -73,8 +94,12 @@ class ContentController extends Controller
         if ($content->update($request->all())) {
             $content->users()->sync($request->input('users', []));
             $content->categories()->sync($request->input('categories', []));
+			if (!empty($request->input('comment.message'))) {
+				$note = new Comment($request->input('comment'));
+				$content->notes()->save($note);
+			}
             $request->session()->flash('success', 'Content saved successfully');
-            return redirect('content/'.$id.'/edit');
+            return redirect('cms/content/'.$id.'/edit');
         } else {
             $request->session()->flash('error', 'Error saving content');
         }
@@ -87,7 +112,7 @@ class ContentController extends Controller
         if ($content->delete($id)) {
             $content->users()->detach();
             $request->session()->flash('success', 'Content deleted');
-            return redirect('content');
+            return redirect('cms/content');
         } else {
             $request->session()->flash('error', 'Error deleting content');
         }
@@ -109,7 +134,7 @@ class ContentController extends Controller
 
         if ($content->update($data)) {
             $request->session()->flash('success', 'Revision has been restored');
-            return redirect('content/'.$revision->revisionable_id.'/edit');
+            return redirect('cms/content/'.$revision->revisionable_id.'/edit');
         } else {
             $request->session()->flash('error', 'Revision failed to restore');
         }

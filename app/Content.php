@@ -20,17 +20,38 @@ class Content extends Model
         'description',
         'seo_description',
         'body',
+		'commentable',
         'status',
         'published_at',
-        'slug'
+        'slug',
+		'comment.content_id',
+		'comment.user_id',
+		'comment.status',
+		'comment.message'
     ];
 
-    public function users() {
+	public function getRouteKeyName()
+	{
+	    return 'slug';
+	}
+
+    public function users()
+	{
         return $this->belongsToMany('App\User', 'content_users', 'content_id', 'user_id');
     }
 
-    public function categories() {
+    public function categories()
+	{
         return $this->belongsToMany('App\Category', 'content_categories', 'content_id', 'category_id');
     }
 
+    public function comments()
+	{
+        return $this->hasMany('App\Comment')->where('status', '!=', 'private');
+    }
+
+	public function notes()
+	{
+		return $this->hasMany('App\Comment')->where('status', 'private');
+	}
 }

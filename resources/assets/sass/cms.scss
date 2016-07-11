@@ -4,12 +4,13 @@
     border-radius: $radius;
 }
 
-// Custom CSS
+// Layout
 body > .grid { height: 100%; }
 body > .contain { margin: 35px 2rem 100px; }
-.ui.menu { @include border-radius(0); }
 
+// Menu
 .ui.inverted.menu .active-parent.item { background: rgba(255,255,255,.15); color: #fff !important; }
+.ui.menu { @include border-radius(0); }
 
 h1.ui.header { padding-top: 5px; }
 
@@ -25,10 +26,13 @@ pre { white-space: pre-line; margin: 0;
 span.ui.small.header { line-height: 30px; }
 .ui.segment.secondary { height: 300px; width: 100%; color: transparent; }
 input[type='file'] { opacity: 0; }
-#uploads{
+#uploads {
 	.tiny.centered.image { text-align: center; background: none; margin: 5px auto;}
 	.card { width: 100px; }
 }
 .ui.form.edit .ui.image { text-align: center; }
 .ui.form.edit .ui.image i { margin: 10px 0; }
 .extra.content a label { cursor: pointer; }
+
+// Notes
+#content-note textarea { height: 70px; min-height: auto; max-height: auto; }

@@ -6,7 +6,6 @@ use App\Http\Requests\Request;
 
 class UserRequest extends Request
 {
-
     public function authorize()
     {
         return true;

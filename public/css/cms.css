@@ -4,12 +4,12 @@ body > .grid {
 body > .contain {
   margin: 35px 2rem 100px; }
 
-.ui.menu {
-  border-radius: 0; }
-
 .ui.inverted.menu .active-parent.item {
   background: rgba(255, 255, 255, 0.15);
   color: #fff !important; }
+
+.ui.menu {
+  border-radius: 0; }
 
 h1.ui.header {
   padding-top: 5px; }
@@ -52,5 +52,10 @@ input[type='file'] {
 
 .extra.content a label {
   cursor: pointer; }
+
+#content-note textarea {
+  height: 70px;
+  min-height: auto;
+  max-height: auto; }
 
 /*# sourceMappingURL=cms.css.map */

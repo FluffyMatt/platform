@@ -16,7 +16,15 @@
 
 	@include('cms.content._form')
 
+	@include('cms.content._fields_seo')
+
 	@include('cms.content._revisions')
+
+	@include('cms.comments._list_notes')
+
+	@if ($content->type == 'article')
+		@include('cms.comments._list_comments')
+	@endif
 
 </form>
 
