@@ -27,6 +27,8 @@ class ContentRequest extends Request
 	{
 		$data = parent::all();
 
+		$data["commentable"] = @$data["commentable"] ?: 0;
+
 		if (empty($data['published_at'])) {
 			unset($data['published_at']);
 		}

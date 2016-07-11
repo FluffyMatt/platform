@@ -20,6 +20,7 @@ class Content extends Model
         'description',
         'seo_description',
         'body',
+		'commentable',
         'status',
         'published_at',
         'slug',
