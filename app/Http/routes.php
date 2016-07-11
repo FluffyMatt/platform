@@ -14,6 +14,8 @@ Route::group(['prefix' => 'cms'], function () {
 	    Route::resource('categories', 'CategoryController');
 	    Route::resource('menus', 'MenuController');
 	    Route::resource('users', 'UserController');
+		Route::resource('files', 'FileController');
+		Route::post('/files/upload', 'FileController@upload');
 	    Route::get('/content/revision/{id}', 'ContentController@revision');
 	    Route::get('/content/rollback/{id}', 'ContentController@rollback');
 
