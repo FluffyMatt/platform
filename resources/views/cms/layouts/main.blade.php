@@ -44,6 +44,14 @@
                                 <a class="item {{ AppHelper::is_active('cms/menus/create') }}" href="/cms/menus/create"><i class="add icon"></i> Add Menu</a>
                             </div>
                         </div>
+						<div class="ui dropdown item {{ AppHelper::is_active_parent('cms/files') }}">
+                            <a href="/cms/files">Files</a>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a class="item {{ AppHelper::is_active('cms/files') }}" href="/cms/files"><i class="list icon"></i> All files</a>
+                                <a class="item {{ AppHelper::is_active('cms/files/create') }}" href="/cms/files/create"><i class="add icon"></i> Add files</a>
+                            </div>
+                        </div>
                         <div class="ui dropdown item {{ AppHelper::is_active_parent('cms/users') }}">
                             <a href="/cms/users">Users</a>
                             <i class="dropdown icon"></i>
