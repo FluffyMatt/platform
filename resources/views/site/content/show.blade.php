@@ -9,9 +9,13 @@
 	<div class="ui grid">
 
 		<div class="eleven wide column">
+
 			{!! $content->body !!}
 
-			@include('site.content._comments')
+			@if ($content->type == 'article')
+				@include('site.content._comments')
+			@endif
+
 		</div>
 
 		<div class="five wide column">
