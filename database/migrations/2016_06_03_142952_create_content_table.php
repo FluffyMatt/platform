@@ -24,6 +24,7 @@ class CreateContentTable extends Migration
             $table->string('description');
             $table->string('seo_description');
             $table->text('body');
+			$table->boolean('commenting');
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
             $table->index(['title', 'parent_id']);

@@ -107,6 +107,13 @@
 					</select>
 				</div>
 
+				<div id="content-commenting" class="field">
+					<label for="commenting">Comments</label>
+					<div class="ui toggle checkbox">
+						<input name="commenting" type="checkbox" value="1" tabindex="0" class="hidden" {{ old('commenting', @$content->commenting) == '1' ? 'checked' : '' }}>
+					</div>
+				</div>
+
 			</div>
 
 		</div>
