@@ -17,6 +17,8 @@ class CreateFilesTable extends Migration
             $table->string('title');
             $table->string('alt_text');
             $table->string('filename');
+			$table->string('path');
+			$table->string('extension');
             $table->string('mime');
             $table->integer('size');
             $table->string('type');
