@@ -20,7 +20,6 @@
 
 @section('content')
 
-
 	<table class="ui celled table">
 		<thead>
 			<tr>
@@ -53,7 +52,11 @@
 						{{ $content->published_at }}
 					</td>
 					<td>
-						{{ $content->comments()->count() }}
+						@if ($content->commentable)
+							{{ $content->comments()->count() }}
+						@else
+							-
+						@endif
 					</td>
 					<td>
 						{{ $content->notes()->count() }}
