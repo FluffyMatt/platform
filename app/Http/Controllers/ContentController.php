@@ -41,10 +41,15 @@ class ContentController extends Controller
     public function create($type = null)
     {
 		if (in_array($type, Content::types)) {
-			$content = new Content([
-				'type' => $type,
-	            'seo_index' => 1
-	        ]);
+			$content = new Content();
+			$content->type = $type;
+			$content->seo_index = 1;
+
+			if ($type == 'page') {
+				$content->commentable = false;
+			} else {
+				$content->commentable = true;
+			}
 
 	        $options = $this->options();
 
