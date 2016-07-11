@@ -19,14 +19,14 @@
 				</div>
 
 				<div class="inline field">
-				  <div class="ui toggle checkbox">
-					<input name="seo_index" type="checkbox" value="1" tabindex="0" class="hidden" {{ old('seo_index', @$content->seo_index) == '1' ? 'checked' : '' }}>
+					<div class="ui toggle checkbox">
+						<input name="seo_index" type="checkbox" value="1" tabindex="0" class="hidden" {{ old('seo_index', @$content->seo_index) == '1' ? 'checked' : '' }}>
 						<label>Indexed by search enginges</label>
-				  </div>
+					</div>
 				</div>
 
 			</div>
-			
+
 		</div>
 
 	</div>
