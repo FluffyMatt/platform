@@ -12,7 +12,7 @@
 
 			{!! $content->body !!}
 
-			@if ($content->type == 'article')
+			@if ($content->commentable)
 				@include('site.content._comments')
 			@endif
 
