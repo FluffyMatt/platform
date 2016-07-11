@@ -86,6 +86,8 @@ $(function() {
 
 	$('.ui.accordion').accordion();
 
+	$('.tip').popup();
+
 	// Js Diff
 	$("#old-diff").each(function(){
 		var newVal = $('#new-diff').text();
