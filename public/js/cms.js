@@ -31,6 +31,10 @@ $(function() {
 			$(this).generateSlug(); // Generate slug from title
 		}
 	});
+	$('#refresh-slug').click(function() {
+		$('#content-title input').generateSlug();
+		return false;
+	});
 	$.fn.generateSlug = function() {
 		var slug = $(this).val();
 		console.log('a')

@@ -20,11 +20,14 @@
 
 				<div id="content-slug" class="field">
 					<label for="slug">URL</label>
-					<div class="ui labeled input">
+					<div class="ui labeled action input">
 						<div class="ui label">
 							{{ ENV('APP_URL') }}/
 						</div>
 						<input type="text" name="slug" value="{{ old('slug', @$content->slug) }}">
+						<a id="refresh-slug" class="ui icon button tip" href="#" data-content="Regenerate from title">
+							<i class="refresh icon"></i>
+						</a>
 					</div>
 				</div>
 
