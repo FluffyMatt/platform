@@ -18,6 +18,19 @@ $(function() {
 		$(this).children('form').submit();
 	})
 
+	// Dropdowns
+	$('.ui.dropdown').dropdown({on: 'hover'})
+	$('form .ui.dropdown').dropdown({on: 'focus'})
+
+	// Checkboxes
+	$('.ui.checkbox').checkbox();
+
+	// Accordions
+	$('.ui.accordion').accordion();
+
+	// Tooltip popups
+	$('.tip').popup();
+
 	// Slug generation
 	$('#content-slug').each(function() {
 		var $generateSlug = true;
@@ -47,6 +60,13 @@ $(function() {
 		}
 	});
 
+	// Set publish date
+	$('#content-status select').change(function() {
+		if ($(this).val() == 'published') {
+			$('#content-published-at input').val(moment().tz(tz).format('YYYY-MM-DD HH:mm:ss'));
+		}
+	});
+
 	// Conditional fields
 	$('#content-form').each(function() {
 		$('#content-categories').dependsOn({
@@ -62,7 +82,7 @@ $(function() {
 	});
 
 	// Semantic
-	$('.ui.calendar').calendar({
+	/*$('.ui.calendar').calendar({
 		on: 'focus',
 		ampm: false,
 		formatter: {
@@ -75,20 +95,12 @@ $(function() {
 			}
 		},
 		type: 'datetime'
-	});
+	});*/
 
+	// Messages
 	$('.message .close').on('click', function() {
 		$(this).closest('.message').transition('fade');
 	});
-
-	$('.ui.dropdown').dropdown({on: 'hover'})
-	$('form .ui.dropdown').dropdown({on: 'focus'})
-
-	$('.ui.checkbox').checkbox();
-
-	$('.ui.accordion').accordion();
-
-	$('.tip').popup();
 
 	// Js Diff
 	$("#old-diff").each(function(){
