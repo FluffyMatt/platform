@@ -69,6 +69,11 @@ $(function() {
 
 	// Conditional fields
 	$('#content-form').each(function() {
+		$('#content-published-at').dependsOn({
+			'#content-status select': {
+				not: ['draft']
+			}
+		});
 		$('#content-categories').dependsOn({
 			'#content-type select': {
 				not: ['page']
