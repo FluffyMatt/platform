@@ -120,6 +120,12 @@
             <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>-->
             <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
         @endif
+
+        <script src="/js/moment.min.js"></script>
+        <script src="/js/moment-timezone-with-data.min.js"></script>
+		<script>
+			var tz = '{{ config('app.timezone') }}';
+		</script>
         <script src="//cdn.ckeditor.com/4.5.9/full/ckeditor.js"></script>
 		<script src="/js/dependsOn.min.js"></script>
         <script src="/js/cms.js"></script>
