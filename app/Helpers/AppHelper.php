@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Request;
 
 class AppHelper
 {
-
 	// Checks URL segments for a match to determine if given segment is active
 	public static function is_active($segment)
 	{
@@ -35,6 +34,15 @@ class AppHelper
 			$indent .= '- ';
 		}
 		return $indent;
+	}
+
+	// Detect whether on the CMS or site
+	public static function isCms() {
+		if (Request::is('cms') or Request::is('cms/*')) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

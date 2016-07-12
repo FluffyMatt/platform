@@ -50,7 +50,11 @@
 					</div>
 				</div>
 				<div class="right menu">
-					<a class="item" href="/"><i class="world icon"></i> View Site</a>
+					@if (AppHelper::isCms())
+						<a class="item" href="/"><i class="world icon"></i> View Site</a>
+					@else
+						<a class="item" href="/cms"><i class="browser icon"></i> View CMS</a>
+					@endif
 					<div class="ui dropdown item {{ AppHelper::is_active_parent('cms/users/'.Auth::user()->id) }} right">
 						@if (Auth::check())
 							<i class="user icon"></i>
