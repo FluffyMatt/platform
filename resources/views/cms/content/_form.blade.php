@@ -69,7 +69,7 @@
 				<div id="content-published-at" class="field">
 					<label>Publish date</label>
 					<div class="ui calendar">
-						<input accept=""name="published_at" type="text" value="{{ old('published_at', @$content->published_at) }}" placeholder="">
+						<input accept=""name="published_at" type="text" value="{{ old('published_at', @$content->published_at) }}" placeholder="YYYY-MM-DD HH:mm:ss">
 					</div>
 				</div>
 
