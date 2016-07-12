@@ -31,44 +31,46 @@ $(function() {
 	// Tooltip popups
 	$('.tip').popup();
 
-	// Slug generation
-	$('#content-slug').each(function() {
-		var $generateSlug = true;
-		if ($('#content-slug input').val().length > 0) {
-			$generateSlug = false; // Don't generate if a slug is already set, e.g. editing exiting content title
-		};
-		$('#content-title input').on('keyup', function() {
-			if ($('#content-slug input').val().length === 0) {
-				$generateSlug = true; // If someone clears the existing slug, assume they want title edits to generate a slug
-			}
-			if ($generateSlug) {
-				$(this).generateSlug(); // Generate slug from title
-			}
-		});
-		$('#refresh-slug').click(function() {
-			$('#content-title input').generateSlug();
-			return false;
-		});
-		$.fn.generateSlug = function() {
-			var slug = $(this).val();
-			console.log('a')
-			slug = slug.toLowerCase(); // Convert uppercase characters to lowercase
-			slug = slug.replace(/[\W_]+/g, " "); // Replace non-alphanumeric and underscores with spaces
-			slug = slug.trim(); // Replace whitespace at start and end
-			slug = slug.replace(/\s+/g, "-"); // Replace spaces with hyphens
-			$('#content-slug input').val(slug);
-		}
-	});
-
-	// Set publish date
-	$('#content-status select').change(function() {
-		if ($(this).val() == 'published') {
-			$('#content-published-at input').val(moment().tz(tz).format('YYYY-MM-DD HH:mm:ss'));
-		}
-	});
-
-	// Conditional fields
+	// Content form
 	$('#content-form').each(function() {
+
+		// Slug generation
+		$('#content-slug').each(function() {
+			var $generateSlug = true;
+			if ($('#content-slug input').val().length > 0) {
+				$generateSlug = false; // Don't generate if a slug is already set, e.g. editing exiting content title
+			};
+			$('#content-title input').on('keyup', function() {
+				if ($('#content-slug input').val().length === 0) {
+					$generateSlug = true; // If someone clears the existing slug, assume they want title edits to generate a slug
+				}
+				if ($generateSlug) {
+					$(this).generateSlug(); // Generate slug from title
+				}
+			});
+			$('#refresh-slug').click(function() {
+				$('#content-title input').generateSlug();
+				return false;
+			});
+			$.fn.generateSlug = function() {
+				var slug = $(this).val();
+				console.log('a')
+				slug = slug.toLowerCase(); // Convert uppercase characters to lowercase
+				slug = slug.replace(/[\W_]+/g, " "); // Replace non-alphanumeric and underscores with spaces
+				slug = slug.trim(); // Replace whitespace at start and end
+				slug = slug.replace(/\s+/g, "-"); // Replace spaces with hyphens
+				$('#content-slug input').val(slug);
+			}
+		});
+
+		// Set publish date
+		$('#content-status select').change(function() {
+			if ($(this).val() == 'published') {
+				$('#content-published-at input').val(moment().tz(tz).format('YYYY-MM-DD HH:mm:ss'));
+			}
+		});
+
+		// Conditional fields
 		$('#content-published-at').dependsOn({
 			'#content-status select': {
 				not: ['draft']
@@ -84,23 +86,8 @@ $(function() {
 				not: ['page']
 			}
 		});
-	});
 
-	// Semantic
-	/*$('.ui.calendar').calendar({
-		on: 'focus',
-		ampm: false,
-		formatter: {
-			date: function (date, settings) {
-				if (!date) return '';
-				var day = ("0" + date.getDate()).slice(-2);
-				var month = ("0" + (date.getMonth() + 1)).slice(-2);
-				var year = date.getFullYear();
-				return  + year + '-' + month + '-' + day;
-			}
-		},
-		type: 'datetime'
-	});*/
+	});
 
 	// Messages
 	$('.message .close').on('click', function() {
