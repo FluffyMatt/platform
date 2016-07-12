@@ -76,6 +76,7 @@
 
 	                            @endif
 	                        </div>
+						</div>
                     </div>
                 </nav>
             </header>
