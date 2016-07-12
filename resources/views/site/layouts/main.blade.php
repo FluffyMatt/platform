@@ -12,9 +12,11 @@
     </head>
     <body>
 
+		@include('cms.shared._bar')
+
         <header>
             <nav>
-                <div class="ui menu inverted">
+                <div class="ui menu">
                     <a class="header item" href="/">Site</a>
                 </div>
             </nav>

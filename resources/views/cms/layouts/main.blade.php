@@ -11,76 +11,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        @if (Auth::check())
-            <header>
-                <nav>
-                    <div class="ui menu inverted">
-                        <a class="header item" href="/cms">CMS</a>
-                        <div class="ui dropdown item {{ AppHelper::is_active_parent('cms/content') }}">
-                            <a href="/cms/content">Content</a>
-                            <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <a class="item {{ AppHelper::is_active('cms/content') }}" href="/cms/content"><i class="list icon"></i> All Content</a>
-                                <a class="item {{ AppHelper::is_active('cms/content/create/article') }}" href="/cms/content/create/article"><i class="add icon"></i> Add Article</a>
-                                <a class="item {{ AppHelper::is_active('cms/content/create/page') }}" href="/cms/content/create/page"><i class="add icon"></i> Add Page</a>
-                                <a class="item {{ AppHelper::is_active('cms/content/create/series') }}" href="/cms/content/create/series"><i class="add icon"></i> Add Series</a>
-                                <a class="item {{ AppHelper::is_active('cms/content/create/chapter') }}" href="/cms/content/create/chapter"><i class="add icon"></i> Add Chapter</a>
-                            </div>
-                        </div>
-                        <div class="ui dropdown item {{ AppHelper::is_active_parent('cms/comments') }}">
-                            <a href="/cms/comments">Comments</a>
-                        </div>
-                        <div class="ui dropdown item {{ AppHelper::is_active_parent('cms/categories') }}">
-                            <a href="/cms/categories">Categories</a>
-                            <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <a class="item {{ AppHelper::is_active('cms/categories') }}" href="/cms/categories"><i class="list icon"></i> All Categories</a>
-                                <a class="item {{ AppHelper::is_active('cms/categories/create') }}" href="/cms/categories/create"><i class="add icon"></i> Add Categories</a>
-                            </div>
-                        </div>
-                        <div class="ui dropdown item {{ AppHelper::is_active_parent('cms/menus') }}">
-                            <a href="/cms/menus">Menus</a>
-                            <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <a class="item {{ AppHelper::is_active('cms/menus') }}" href="/cms/menus"><i class="list icon"></i> All Menus</a>
-                                <a class="item {{ AppHelper::is_active('cms/menus/create') }}" href="/cms/menus/create"><i class="add icon"></i> Add Menu</a>
-                            </div>
-                        </div>
-						<div class="ui dropdown item {{ AppHelper::is_active_parent('cms/files') }}">
-                            <a href="/cms/files">Files</a>
-                            <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <a class="item {{ AppHelper::is_active('cms/files') }}" href="/cms/files"><i class="list icon"></i> All files</a>
-                                <a class="item {{ AppHelper::is_active('cms/files/create') }}" href="/cms/files/create"><i class="add icon"></i> Add files</a>
-                            </div>
-                        </div>
-                        <div class="ui dropdown item {{ AppHelper::is_active_parent('cms/users') }}">
-                            <a href="/cms/users">Users</a>
-                            <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <a class="item {{ AppHelper::is_active('cms/users') }}" href="/cms/users"><i class="list icon"></i> All users</a>
-                                <a class="item {{ AppHelper::is_active('cms/users/create') }}" href="/cms/users/create"><i class="add icon"></i> Add User</a>
-                            </div>
-                        </div>
-						<div class="right menu">
-							<a class="item" href="/"><i class="world icon"></i> View Site</a>
-	                        <div class="ui dropdown item {{ AppHelper::is_active_parent('cms/users/'.Auth::user()->id) }} right">
-	                            @if (Auth::check())
-	                                <i class="user icon"></i>
-	                                <a href="/cms/users/{{ Auth::user()->id }}/edit">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</a>
-	                                <div class="menu">
-	                                  <a class="item {{ AppHelper::is_active('cms/users/'.Auth::user()->id.'/edit') }}" href="/cms/users/{{ Auth::user()->id }}/edit"><i class="settings icon"></i> User profile</a>
-	                                  <a class="item" href="/cms/logout"><i class="sign out icon"></i> Logout</a>
-	                                </div>
-	                            @else
 
-	                            @endif
-	                        </div>
-						</div>
-                    </div>
-                </nav>
-            </header>
-        @endif
+		@include('cms.shared._bar')
 
         @if (Auth::check())
             <div class="ui contain">
