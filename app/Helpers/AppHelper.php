@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Request;
 class AppHelper
 {
 	// Checks URL segments for a match to determine if given segment is active
-	public static function is_active($segment)
+	public static function isActive($segment)
 	{
 		$active = '';
 		if (Request::is($segment)) {
@@ -17,7 +17,7 @@ class AppHelper
 	}
 
 	// Checks URL segments for a match to determine if given segment is an active parent
-	public static function is_active_parent($segment)
+	public static function isActiveParent($segment)
 	{
 		$active = '';
 		if (Request::is($segment) || Request::is($segment.'/*')) {
