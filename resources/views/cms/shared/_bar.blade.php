@@ -38,7 +38,13 @@
 					<i class="dropdown icon"></i>
 					<div class="menu">
 						<a class="item {{ AppHelper::isActive('cms/files') }}" href="/cms/files"><i class="list icon"></i> All files</a>
-						<a class="item {{ AppHelper::isActive('cms/files/create') }}" href="/cms/files/create"><i class="add icon"></i> Add files</a>
+						<a class="item {{ AppHelper::isActive('cms/files/create/photo') }}" href="/cms/files/create/photo"><i class="add icon"></i> Upload photos</a>
+						<a class="item {{ AppHelper::isActive('cms/files/create/user') }}" href="/cms/files/create/user"><i class="add icon"></i> Upload users</a>
+						<a class="item {{ AppHelper::isActive('cms/files/create/feature') }}" href="/cms/files/create/feature"><i class="add icon"></i> Upload features</a>
+						<a class="item {{ AppHelper::isActive('cms/files/create/screenshot') }}" href="/cms/files/create/screenshot"><i class="add icon"></i> Upload screenshots</a>
+						<a class="item {{ AppHelper::isActive('cms/files/create/logo') }}" href="/cms/files/create/logo"><i class="add icon"></i> Upload logos</a>
+						<a class="item {{ AppHelper::isActive('cms/files/create/document') }}" href="/cms/files/create/document"><i class="add icon"></i> Upload documents</a>
+						<a class="item {{ AppHelper::isActive('cms/files/create/audio') }}" href="/cms/files/create/audio"><i class="add icon"></i> Upload audio</a>
 					</div>
 				</div>
 				<div class="ui dropdown item {{ AppHelper::isActiveParent('cms/users') }}">
