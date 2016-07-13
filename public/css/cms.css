@@ -58,4 +58,9 @@ input[type='file'] {
   min-height: auto;
   max-height: auto; }
 
+label > span > small {
+  color: #becccc;
+  font-weight: normal;
+  float: right; }
+
 /*# sourceMappingURL=cms.css.map */

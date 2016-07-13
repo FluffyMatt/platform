@@ -36,3 +36,6 @@ input[type='file'] { opacity: 0; }
 
 // Notes
 #content-note textarea { height: 70px; min-height: auto; max-height: auto; }
+
+// SEO
+label > span > small { color: #becccc; font-weight: normal; float: right; }

@@ -236,5 +236,37 @@ $(function() {
 		});
   	};
 
+	// Character count
+	characterCount = function(elem) {
+		var limit = $(elem).data('count');
+		var current = $(elem).val().length;
+		var left = limit-current;
+		var labelInsert;
+		var colour;
+		if (current < limit) {
+		  labelInsert = left+' characters left';
+		  colour = '#becccc';
+		} else if (current === limit) {
+		  labelInsert = 'limit reached';
+		  colour = '#1ebc30';
+		} else {
+		  var over = left.toString(); over = over.replace('-', '');
+		  labelInsert = over+' over the limit';
+		  colour = '#db2828';
+		}
+		$('label[for='+$(elem).attr('name')+']>span>small').html(labelInsert);
+		$('label[for='+$(elem).attr('name')+']>span>small').css('color', colour);
+	};
+
+	// Set up current count
+	$('[data-count]').each(function() {
+		$('label[for='+$(this).attr('name')+']').append(' <span><small></small></span>');
+		characterCount(this);
+	});
+
+	// Keyup count
+	$('[data-count]').keyup(function(){
+		characterCount(this);
+	})
 
 });
