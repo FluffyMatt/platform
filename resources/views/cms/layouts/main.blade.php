@@ -52,6 +52,7 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.js"></script>
         @endif
 
+        <script src="/js/jquery.are-you-sure.js"></script>
         <script src="/js/moment.min.js"></script>
         <script src="/js/moment-timezone-with-data.min.js"></script>
 		<script>

@@ -236,5 +236,8 @@ $(function() {
 		});
   	};
 
+	// Unsaved changes
+	jQuery('#content-form').areYouSure();
+
 
 });
