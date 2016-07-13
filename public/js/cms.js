@@ -269,4 +269,7 @@ $(function() {
 		characterCount(this);
 	})
 
+	// Unsaved changes
+	$('form').areYouSure();
+
 });
