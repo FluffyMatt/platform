@@ -59,7 +59,7 @@
 
 			<div class="ui padded segment">
 
-				<h3 class="ui centered header"><i class="copyright icon"></i> Creative Commons</h3>
+				<h3 class="ui centered header"><i class="creative commons icon"></i> Creative Commons</h3>
 
 				<div class="field">
 					<label for"title">Credit name</label>
