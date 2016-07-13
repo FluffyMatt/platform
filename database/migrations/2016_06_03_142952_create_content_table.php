@@ -15,7 +15,7 @@ class CreateContentTable extends Migration
         Schema::create('content', function(Blueprint $table) {
             $table->increments('id');
 			$table->string('type')->index();
-            $table->integer('parent_id');
+            $table->integer('parent_id')->nullable();
             $table->string('slug')->unique();
             $table->string('status');
             $table->boolean('seo_index');
