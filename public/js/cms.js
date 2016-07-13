@@ -157,6 +157,7 @@ $(function() {
 			reader.onload = (function(file, i) {
 				rowId++;
 				formData.append('file', file);
+				formData.append('type', $('[name="type"]').val());
 				upload(formData, rowId);
 				var row = document.createElement('tr');
 				row.id = rowId;
