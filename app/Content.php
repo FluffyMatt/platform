@@ -14,6 +14,7 @@ class Content extends Model
 
     protected $fillable = [
 		'type',
+		'parent_id',
 		'seo_index',
         'title',
         'seo_title',
