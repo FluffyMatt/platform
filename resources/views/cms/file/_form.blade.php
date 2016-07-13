@@ -1,5 +1,7 @@
 {{ csrf_field() }}
 
+<input type="hidden" name="type" value="{{ $type }}">
+
 <div class="ui grid">
 
 	<div class="ui one column centered grid">
