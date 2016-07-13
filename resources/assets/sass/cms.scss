@@ -39,3 +39,7 @@ input[type='file'] { opacity: 0; }
 
 // SEO
 label > span > small { color: #becccc; font-weight: normal; float: right; }
+.seo-preview {
+	.seo-title { color: #1a0dab; margin-bottom: 0; font-size: 18px; }
+	.seo_description { line-height: 1.4; }
+}

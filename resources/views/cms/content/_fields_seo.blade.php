@@ -30,6 +30,13 @@
 							<label>Indexed by search enginges</label>
 						</div>
 					</div>
+
+					<div class="seo-preview ui segment">
+						<div class="ui top right attached label">SEO Preview</div>
+						<p class="seo-title">{{ old('seo_title', @$content->seo_title) }}</p>
+						<p class="seo-description">{{ old('seo_description', @$content->seo_description) }}</p>
+					</div>
+
 				</div>
 
 			</div>

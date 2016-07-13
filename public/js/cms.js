@@ -270,6 +270,14 @@ $(function() {
 		characterCount(this);
 	})
 
+	// SEO Preview
+	$('[name="seo_title"]').keyup(function() {
+		$('.seo-title').text($(this).val());
+	})
+	$('[name="seo_description"]').keyup(function() {
+		$('.seo-description').text($(this).val());
+	})
+
 	// Unsaved changes
 	$('form').areYouSure();
 
