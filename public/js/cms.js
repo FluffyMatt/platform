@@ -20,7 +20,7 @@ $(function() {
 
 	// Dropdowns
 	$('.ui.dropdown').dropdown({on: 'hover'})
-	$('form .ui.dropdown').dropdown({on: 'focus'})
+	$('form .ui.dropdown').dropdown({on: 'focus', fullTextSearch: true})
 
 	// Checkboxes
 	$('.ui.checkbox').checkbox();
