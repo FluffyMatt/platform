@@ -35,5 +35,6 @@ Route::group(['prefix' => 'cms'], function () {
 });
 
 Route::get('/', 'ContentController@home');
-Route::get('/{slug}', 'ContentController@show');
+Route::get('/{slug}', 'ContentController@show')->where('slug', '(.*)');
+//Route::get('/{slug}', 'ContentController@show');
 Route::post('/comments', 'CommentController@store');

@@ -21,6 +21,9 @@ class ContentController extends Controller
 
 	public function show($slug)
 	{
+		$slug = explode('/', $slug);
+		$slug = array_pop($slug);
+
 		$content = Content::where('slug', $slug)->firstOrFail();
 
 		return view('site.content.show', compact('content'));
