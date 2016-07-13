@@ -30,6 +30,15 @@ class File extends Model
 		'credit_url'
     ];
 
+	// Pretify the file size stored when accessed
+	public function getSizeAttribute($size)
+	{
+	    $units = array( 'B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
+	    $power = $size > 0 ? floor(log($size, 1024)) : 0;
+	    return number_format($size / pow(1024, $power), 2, '.', ',') . ' ' . $units[$power];
+	}
+
+	// Delete all the files
 	public function delete()
 	{
 		$dir = File::dir.date_format($this->created_at, 'Y').'/'.date_format($this->created_at, 'M').'/';
@@ -42,7 +51,7 @@ class File extends Model
 	}
 
 	// Handles all uploaded images
-	public static function imageUpload($file)
+	public static function imageUpload($file, $type)
 	{
 		$filename = File::_filename($file->getClientOriginalName());
 		$files = File::_generateSizes($file);
@@ -54,7 +63,8 @@ class File extends Model
 				'path' => str_replace('/public', '', File::dir.date('Y').'/'.date('M').'/'),
 				'extension' => $filename['ext'],
 				'mime' => $file->getMimeType(),
-				'size' => $file->getSize()
+				'size' => $file->getSize(),
+				'type' => $type
 			]);
 			if ($saved) {
 				return $saved->id;
@@ -79,7 +89,7 @@ class File extends Model
 	}
 
 	// Handles all non image based uploads
-	public static function fileUpload($file)
+	public static function fileUpload($file, $type)
 	{
 		$filename = File::_filename($file->getClientOriginalName());
 		$results = File::_storage($file, $filename, 'file');
@@ -90,7 +100,8 @@ class File extends Model
 				'path' => str_replace('/public', '', File::dir.date('Y').'/'.date('M').'/'),
 				'extension' => $filename['ext'],
 				'mime' => $file->getMimeType(),
-				'size' => $file->getSize()
+				'size' => $file->getSize(),
+				'type' => $type
 			]);
 			if ($saved) {
 				return $saved->id;
