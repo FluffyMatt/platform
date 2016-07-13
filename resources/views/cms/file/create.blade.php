@@ -4,9 +4,6 @@
 
 @section('header', 'Upload file')
 
-@section('buttons')
-	@include('cms.shared._buttons', ['label' => 'Upload', 'display' => 'hide'])
-@endsection
 
 @section('content')
 
