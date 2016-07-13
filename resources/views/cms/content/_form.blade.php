@@ -73,6 +73,16 @@
 					</div>
 				</div>
 
+				<div id="content-parent" class="field">
+					<label for="parent_id">Parent</label>
+					<select class="ui fluid search dropdown" name="parent_id">
+						<option value=""></option>
+						@foreach ($options['content'] as $id => $title)
+							<option value="{{ $id }}" @if(old('parent_id', @$content->parent_id) == $id) selected @endif>{{ $title }}</option>
+						@endforeach
+					</select>
+				</div>
+
 				<div id="content-users" class="field">
 					<label for="users">Authored by</label>
 					<select name="users[]" class="ui fluid search dropdown authors" multiple>
