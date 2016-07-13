@@ -51,6 +51,9 @@
 				</div>
 				<div class="right menu">
 					@if (AppHelper::isCms())
+						@if (isset($content))
+							<a class="item" href="/{{ $content->slug }}"><i class="eye icon"></i> View this content</a>
+						@endif
 						<a class="item" href="/"><i class="world icon"></i> View Site</a>
 					@else
 						@if (isset($content))
