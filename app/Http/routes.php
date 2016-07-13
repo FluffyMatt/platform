@@ -17,6 +17,7 @@ Route::group(['prefix' => 'cms'], function () {
 	    Route::resource('users', 'UserController');
 		Route::resource('files', 'FileController');
 		Route::post('/files/upload', 'FileController@upload');
+		Route::get('/files/create/{type}', 'FileController@create');
 	    Route::get('/content/revision/{id}', 'ContentController@revision');
 	    Route::get('/content/rollback/{id}', 'ContentController@rollback');
 
