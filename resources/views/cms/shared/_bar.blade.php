@@ -54,7 +54,7 @@
 						<a class="item" href="/"><i class="world icon"></i> View Site</a>
 					@else
 						@if (isset($content))
-							<a class="item" href="/content{{ $content->id }}/edit"><i class="pencil icon"></i> Edit this content</a>
+							<a class="item" href="/content/{{ $content->id }}/edit"><i class="pencil icon"></i> Edit this content</a>
 						@endif
 						<a class="item" href="/cms"><i class="browser icon"></i> View CMS</a>
 					@endif
