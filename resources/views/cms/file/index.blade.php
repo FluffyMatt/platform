@@ -5,7 +5,21 @@
 @section('header', 'Files')
 
 @section('buttons')
-	<a class="ui primary right floated button" href="/cms/files/create">Upload a File</a>
+	<div class="ui primary right floated buttons">
+		<a class="ui button" href="/cms/files/create">Upload Files</a>
+		<div class="ui floating dropdown icon button">
+			<i class="dropdown icon"></i>
+			<div class="menu">
+				<div class="item"><a href="/cms/files/create/photo">Upload Photos</a></div>
+				<div class="item"><a href="/cms/files/create/user">Upload Users</a></div>
+				<div class="item"><a href="/cms/files/create/feature">Upload Features</a></div>
+				<div class="item"><a href="/cms/files/create/screenshot">Upload Screenshots</a></div>
+				<div class="item"><a href="/cms/files/create/logo">Upload Logos</a></div>
+				<div class="item"><a href="/cms/files/create/document">Upload Documents</a></div>
+				<div class="item"><a href="/cms/files/create/audio">Upload Audio</a></div>
+			</div>
+		</div>
+	</div>
 @endsection
 
 @section('content')
@@ -24,13 +38,13 @@
 			@forelse ($files as $file)
 				<tr>
 					<td>
-						{{ $file->filename }}
+						{{ $file->filename.$file->extension }}
 					</td>
 					<td>
 						{{ $file->title }}
 					</td>
 					<td>
-						{{ $file->type }}
+						{{ ucfirst($file->type) }}
 					</td>
 					<td>
 						{{ $file->size }}
