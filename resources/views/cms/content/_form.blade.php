@@ -76,7 +76,7 @@
 				<div id="content-users" class="field">
 					<label for="users">Authored by</label>
 					<select name="users[]" class="ui fluid search dropdown authors" multiple>
-						@foreach ($options['users'] as $full_name => $id)
+						@foreach ($options['users'] as $id => $fullName)
 							<?php $selected = ''; ?>
 							@foreach (old('users', @$content->users()->pluck('user_id')) as $user_id)
 								@if ($user_id == $id)
@@ -86,7 +86,7 @@
 							@if (empty(old('users', @$content->users->toArray())) && Auth::user()->id == $id)
 								<?php $selected = 'selected'; ?>
 							@endif
-							<option value="{{ $id }}" {{ $selected }}>{{ $full_name }}</option>
+							<option value="{{ $id }}" {{ $selected }}>{{ $fullName }}</option>
 						@endforeach
 					</select>
 				</div>

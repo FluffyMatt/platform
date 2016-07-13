@@ -147,8 +147,9 @@ class ContentController extends Controller
     {
         return [
             'categories' => Category::tree(),
+            'content' => Content::all()->pluck('title', 'id'),
 			'types' => Content::types,
-            'users' => User::all()->pluck('id', 'full_name'),
+            'users' => User::all()->pluck('full_name', 'id'),
         ];
     }
 }
