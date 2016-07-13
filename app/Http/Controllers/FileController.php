@@ -17,20 +17,21 @@ class FileController extends Controller
     }
 
 
-    public function create()
+    public function create($type = null)
     {
-		return view('cms.file.create');
+		return view('cms.file.create', ['type' => $type]);
     }
 
     public function store(Request $request)
     {
-		$files = $request->all();
-
+		$type = $request->type;
+		$files = $request->files;
+		
 		foreach ($files as $key => $file) {
 			if (in_array($file->getMimeType(), File::imageTypes)) {
-				$saved = File::imageUpload($file);
+				$saved = File::imageUpload($file, $type);
 			} else {
-				$saved = File::fileUpload($file);
+				$saved = File::fileUpload($file, $type);
 			}
 		}
 		return $saved;
